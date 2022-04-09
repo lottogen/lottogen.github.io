@@ -1,0 +1,4 @@
+#Ignore lotto histories fetch files
+fetch.py
+updateScript.bat
+updateLog.txt
