@@ -1,5 +1,5 @@
 //Lotto Max global variables
-let maxHistory, lm_genBtn, lm_genList, lm_under13, lm_zeros, lm_theRest, lm_genListDiv, lm_patternPick, lm_totalGenList, lm_missA10, lm_evenOdd;
+let maxHistory, lm_genBtn, lm_genList, lm_under13, lm_zeros, lm_theRest, lm_genListDiv, lm_patternPick, lm_totalGenList, lm_missA10, lm_evenOdd, lm_cardPick;
 let lm_mainCount = {
   '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0, '8':0, '9':0, '10':0,
   '11':0, '12':0, '13':0, '14':0, '15':0, '16':0, '17':0, '18':0, '19':0, '20':0,
@@ -11,7 +11,7 @@ let lm_mainFreq = JSON.parse(JSON.stringify(lm_mainCount)); //this makes a deep 
 let lm_tempCount = JSON.parse(JSON.stringify(lm_mainCount));
 
 //Lotto 6/49 global variables
-let history649, l6_genBtn, l6_genList, l6_under14, l6_zeros, l6_theRest, l6_genListDiv, l6_patternPick, l6_totalGenList, l6_missA10, l6_evenOdd;
+let history649, l6_genBtn, l6_genList, l6_under14, l6_zeros, l6_theRest, l6_genListDiv, l6_patternPick, l6_totalGenList, l6_missA10, l6_evenOdd, l6_cardPick;
 let l6_mainCount = {
   '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0, '8':0, '9':0, '10':0,
   '11':0, '12':0, '13':0, '14':0, '15':0, '16':0, '17':0, '18':0, '19':0, '20':0,
@@ -23,7 +23,7 @@ let l6_mainFreq = JSON.parse(JSON.stringify(l6_mainCount)); //this makes a deep 
 let l6_tempCount = JSON.parse(JSON.stringify(l6_mainCount));
 
 //Daily Grand global variables
-let dgHistory, dg_genBtn, dg_genList, dg_under7, dg_under15, dg_theRest, dg_genListDiv, dg_patternPick, dg_totalGenList, dg_missA10, dg_evenOdd;
+let dgHistory, dg_genBtn, dg_genList, dg_under7, dg_under15, dg_theRest, dg_genListDiv, dg_patternPick, dg_totalGenList, dg_missA10, dg_evenOdd, dg_cardPick;
 let grandCount = {
   '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0
 };
@@ -32,12 +32,47 @@ let dg_mainFreq = JSON.parse(JSON.stringify(l6_mainCount)); //this makes a deep 
 let grandFreq = JSON.parse(JSON.stringify(grandCount));
 let dg_tempCount = JSON.parse(JSON.stringify(l6_mainCount));
 
+let lotteryCards = ["lottoMaxCard", "lotto649Card", "dailyGrandCard"];
+
 window.onload = function() {
+
+  lm_cardPick = document.getElementById("lm_cardPick");
+  l6_cardPick = document.getElementById("l6_cardPick");
+  dg_cardPick = document.getElementById("dg_cardPick");
+
+  lm_cardPick.onclick = function() {
+    lotteryChooser("lottoMaxCard");
+  }
+
+  l6_cardPick.onclick = function() {
+    lotteryChooser("lotto649Card");
+  }
+
+  dg_cardPick.onclick = function() {
+    lotteryChooser("dailyGrandCard");
+  }
+
+  lotteryChooser("lottoMaxCard");
+
   d3.queue()
       .defer(d3.json, 'LMHistory.json')
       .defer(d3.json, '649History.json')
       .defer(d3.json, 'DGHistory.json')
       .await(ready);
+}
+
+function lotteryChooser(lottoCard) {
+  if (lottoCard == "lottoMaxCard") document.getElementById("lottoCardDropdown").innerHTML = "Lotto Max";
+  else if (lottoCard == "lotto649Card") document.getElementById("lottoCardDropdown").innerHTML = "Lotto 6/49";
+  else document.getElementById("lottoCardDropdown").innerHTML = "Daily Grand";
+
+  for (var lotto of lotteryCards) {
+    if (lotto == lottoCard) {
+      console.log("showing " + lotto);
+      document.getElementById(lotto).style.display = "flex";
+    }
+    else document.getElementById(lotto).style.display = "none";
+  }
 }
 
 function ready(error, lmData, data649, dgData) {
@@ -123,7 +158,7 @@ function genLMSequence() {
   let patternSeq = lm_patternPick.value.split("-");
   let evenOddSeq = lm_evenOdd.value.split("-");
 
-  while (lm_genList.length < 10) {
+  while (lm_genList.length < 5) {
     var newSeq = [];
     calc_newSeq(lm_zeros, lm_under13, lm_theRest, newSeq, patternSeq, 7, 50);
 
