@@ -22,387 +22,383 @@
    <div class="row justify-content-center">
     <div class="col-lg-8">
      <div class="topBar">
-       Lotto Number Generator
+      Lotto Number Generator
      </div>
      <br>
-      <div class="instructStep">
-       <span>
-        Click the GENERATE buttons to get a list of potential winning numbers! This generator allows you
+     <div class="instructStep">
+      <span>
+       Click the GENERATE buttons to get a list of potential winning numbers! This generator allows you
                 to set conditions on the sequences generated to slightly increase the chance of winning.
                 The condition values are ordered starting with the most common case, choosing 'Any' for all
                 conditions will generate almost completely random sequences (except the hidden conditions will apply).
-       </span>
-       <br>
-      </div>
+      </span>
+      <br>
+     </div>
     </div>
    </div>
    <br>
-
    <div class="row">
     <div class="col-lg" style="color: #003399; background-color: #8dc955;">
      <div class="topBar">
-       Lotto Max
+      Lotto Max
      </div>
      <br>
-      <div class="row justify-content-center">
-       <div class="col-6">
-        <div class="input-group mb-3">
-         <label class="input-group-text" for="lm_patternDrop">
-          Pattern
-         </label>
-         <select class="form-select" id="lm_patternDrop">
-          <option value="1-6-0">
-           1-6-0
-          </option>
-          <option value="0-6-1">
-           0-6-1
-          </option>
-          <option value="1-5-1">
-           1-5-1
-          </option>
-          <option value="2-5-0">
-           1-4-2
-          </option>
-          <option value="2-5-0">
-           2-4-1
-          </option>
-          <option value="2-4-1">
-           2-5-0
-          </option>
-          <option value="1-4-2">
-           0-7-0
-          </option>
-          <option value="0-7-0">
-           0-5-2
-          </option>
-          <option value="Any">
-           Any
-          </option>
-         </select>
-        </div>
+     <div class="row justify-content-center">
+      <div class="col-6">
+       <div class="input-group mb-3">
+        <label class="input-group-text" for="lm_patternDrop">
+         Pattern
+        </label>
+        <select class="form-select" id="lm_patternDrop">
+         <option value="1-6-0">
+          1-6-0
+         </option>
+         <option value="0-6-1">
+          0-6-1
+         </option>
+         <option value="1-5-1">
+          1-5-1
+         </option>
+         <option value="2-5-0">
+          1-4-2
+         </option>
+         <option value="2-5-0">
+          2-4-1
+         </option>
+         <option value="2-4-1">
+          2-5-0
+         </option>
+         <option value="1-4-2">
+          0-7-0
+         </option>
+         <option value="0-7-0">
+          0-5-2
+         </option>
+         <option value="Any">
+          Any
+         </option>
+        </select>
        </div>
       </div>
-      <div class="row justify-content-center">
-       <div class="col-6">
-        <div class="input-group mb-3">
-         <label class="input-group-text" for="lm_missA10Drop">
-          Miss 10s
-         </label>
-         <select class="form-select" id="lm_missA10Drop">
-          <option value="Yes">
-           Yes
-          </option>
-          <option value="No">
-           No
-          </option>
-          <option value="Any">
-           Any
-          </option>
-         </select>
-        </div>
+     </div>
+     <div class="row justify-content-center">
+      <div class="col-6">
+       <div class="input-group mb-3">
+        <label class="input-group-text" for="lm_missA10Drop">
+         Miss 10s
+        </label>
+        <select class="form-select" id="lm_missA10Drop">
+         <option value="Yes">
+          Yes
+         </option>
+         <option value="No">
+          No
+         </option>
+         <option value="Any">
+          Any
+         </option>
+        </select>
        </div>
       </div>
-      <div class="row justify-content-center">
-       <div class="col-6">
-        <div class="input-group mb-3">
-         <label class="input-group-text" for="lm_evenOddDrop">
-          Even/Odd
-         </label>
-         <select class="form-select" id="lm_evenOddDrop">
-          <option value="4-3">
-           4/3
-          </option>
-          <option value="3-4">
-           3/4
-          </option>
-          <option value="5-2">
-           5/2
-          </option>
-          <option value="2-5">
-           2/5
-          </option>
-          <option value="Any">
-           Any
-          </option>
-         </select>
-        </div>
+     </div>
+     <div class="row justify-content-center">
+      <div class="col-6">
+       <div class="input-group mb-3">
+        <label class="input-group-text" for="lm_evenOddDrop">
+         Even/Odd
+        </label>
+        <select class="form-select" id="lm_evenOddDrop">
+         <option value="4-3">
+          4/3
+         </option>
+         <option value="3-4">
+          3/4
+         </option>
+         <option value="5-2">
+          5/2
+         </option>
+         <option value="2-5">
+          2/5
+         </option>
+         <option value="Any">
+          Any
+         </option>
+        </select>
        </div>
       </div>
-      <div class="genBDiv">
-       <button class="genButton" id="lm_genButton" style="background-color: #0977ad; color: #ffffff; border-color: #056a9c;">
-        GENERATE
-       </button>
-      </div>
-      <!--<div class="genBDiv">
+     </div>
+     <div class="genBDiv">
+      <button class="genButton" id="lm_genButton" style="background-color: #0977ad; color: #ffffff; border-color: #056a9c;">
+       GENERATE
+      </button>
+     </div>
+     <!--<div class="genBDiv">
               <button id="checkButton">Check</button>
             </div>-->
-      <div class="row justify-content-center">
-       <div class="genDisplay">
-        <span style="font-weight: bold;">
-         Generated Sequences:
-        </span>
-        <div id="lm_genList">
-         <br>
-        </div>
+     <div class="row justify-content-center">
+      <div class="genDisplay">
+       <span style="font-weight: bold;">
+        Generated Sequences:
+       </span>
+       <div id="lm_genList">
+        <br>
        </div>
       </div>
+     </div>
     </div>
-
     <div class="col-lg" style="background-color: #0256a3;">
      <div class="topBar">
-       Lotto 6/49
+      Lotto 6/49
      </div>
      <br>
-      <div class="row justify-content-center">
-       <div class="col-6">
-        <div class="input-group mb-3">
-         <label class="input-group-text" for="l6_patternDrop">
-          Pattern
-         </label>
-         <select class="form-select" id="l6_patternDrop">
-          <option value="1-5-0">
-           0-5-1
-          </option>
-          <option value="0-5-1">
-           1-5-0
-          </option>
-          <option value="1-4-1">
-           1-4-1
-          </option>
-          <option value="2-4-0">
-           0-4-2
-          </option>
-          <option value="0-4-2">
-           2-4-0
-          </option>
-          <option value="0-6-0">
-           0-6-0
-          </option>
-          <option value="0-6-0">
-           1-3-2
-          </option>
-          <option value="Any">
-           Any
-          </option>
-         </select>
-        </div>
+     <div class="row justify-content-center">
+      <div class="col-6">
+       <div class="input-group mb-3">
+        <label class="input-group-text" for="l6_patternDrop">
+         Pattern
+        </label>
+        <select class="form-select" id="l6_patternDrop">
+         <option value="1-5-0">
+          0-5-1
+         </option>
+         <option value="0-5-1">
+          1-5-0
+         </option>
+         <option value="1-4-1">
+          1-4-1
+         </option>
+         <option value="2-4-0">
+          0-4-2
+         </option>
+         <option value="0-4-2">
+          2-4-0
+         </option>
+         <option value="0-6-0">
+          0-6-0
+         </option>
+         <option value="0-6-0">
+          1-3-2
+         </option>
+         <option value="Any">
+          Any
+         </option>
+        </select>
        </div>
       </div>
-      <div class="row justify-content-center">
-       <div class="col-6">
-        <div class="input-group mb-3">
-         <label class="input-group-text" for="l6_missA10Drop">
-          Miss 10s
-         </label>
-         <select class="form-select" id="l6_missA10Drop">
-          <option value="Yes">
-           Yes
-          </option>
-          <option value="No">
-           No
-          </option>
-          <option value="Any">
-           Any
-          </option>
-         </select>
-        </div>
+     </div>
+     <div class="row justify-content-center">
+      <div class="col-6">
+       <div class="input-group mb-3">
+        <label class="input-group-text" for="l6_missA10Drop">
+         Miss 10s
+        </label>
+        <select class="form-select" id="l6_missA10Drop">
+         <option value="Yes">
+          Yes
+         </option>
+         <option value="No">
+          No
+         </option>
+         <option value="Any">
+          Any
+         </option>
+        </select>
        </div>
       </div>
-      <div class="row justify-content-center">
-       <div class="col-6">
-        <div class="input-group mb-3">
-         <label class="input-group-text" for="l6_evenOddDrop">
-          Even/Odd
-         </label>
-         <select class="form-select" id="l6_evenOddDrop">
-          <option value="3-3">
-           3/3
-          </option>
-          <option value="4-2">
-           4/2
-          </option>
-          <option value="2-4">
-           2/4
-          </option>
-          <option value="Any">
-           Any
-          </option>
-         </select>
-        </div>
+     </div>
+     <div class="row justify-content-center">
+      <div class="col-6">
+       <div class="input-group mb-3">
+        <label class="input-group-text" for="l6_evenOddDrop">
+         Even/Odd
+        </label>
+        <select class="form-select" id="l6_evenOddDrop">
+         <option value="3-3">
+          3/3
+         </option>
+         <option value="4-2">
+          4/2
+         </option>
+         <option value="2-4">
+          2/4
+         </option>
+         <option value="Any">
+          Any
+         </option>
+        </select>
        </div>
       </div>
-      <div class="genBDiv">
-       <button class="genButton" id="l6_genButton">
-        GENERATE
-       </button>
-      </div>
-      <div class="row justify-content-center">
-       <div class="genDisplay">
-        <span style="font-weight: bold;">
-         Generated Sequences:
-        </span>
-        <div id="l6_genList">
-         <br>
-        </div>
+     </div>
+     <div class="genBDiv">
+      <button class="genButton" id="l6_genButton">
+       GENERATE
+      </button>
+     </div>
+     <div class="row justify-content-center">
+      <div class="genDisplay">
+       <span style="font-weight: bold;">
+        Generated Sequences:
+       </span>
+       <div id="l6_genList">
+        <br>
        </div>
       </div>
+     </div>
     </div>
     <div class="col-lg" style="background-color: #ee6d28;">
      <div class="topBar">
-       Daily Grand
-    </div>
-    <br>
-      <div class="row justify-content-center">
-       <div class="col-6">
-        <div class="input-group mb-3">
-         <label class="input-group-text" for="dg_patternDrop">
-          Pattern
-         </label>
-         <select class="form-select" id="dg_patternDrop">
-          <option value="1-4-0">
-           3-1-1
-          </option>
-          <option value="0-4-1">
-           3-2-0
-          </option>
-          <option value="0-4-1">
-           2-1-2
-          </option>
-          <option value="1-3-1">
-           2-2-1
-          </option>
-          <option value="2-3-0">
-           3-0-2
-          </option>
-          <option value="0-3-2">
-           4-1-0
-          </option>
-          <option value="0-5-0">
-           4-0-1
-          </option>
-          <option value="Any">
-           Any
-          </option>
-         </select>
-        </div>
+      Daily Grand
+     </div>
+     <br>
+     <div class="row justify-content-center">
+      <div class="col-6">
+       <div class="input-group mb-3">
+        <label class="input-group-text" for="dg_patternDrop">
+         Pattern
+        </label>
+        <select class="form-select" id="dg_patternDrop">
+         <option value="1-4-0">
+          3-1-1
+         </option>
+         <option value="0-4-1">
+          3-2-0
+         </option>
+         <option value="0-4-1">
+          2-1-2
+         </option>
+         <option value="1-3-1">
+          2-2-1
+         </option>
+         <option value="2-3-0">
+          3-0-2
+         </option>
+         <option value="0-3-2">
+          4-1-0
+         </option>
+         <option value="0-5-0">
+          4-0-1
+         </option>
+         <option value="Any">
+          Any
+         </option>
+        </select>
        </div>
       </div>
-      <div class="row justify-content-center">
-       <div class="col-6">
-        <div class="input-group mb-3">
-         <label class="input-group-text" for="dg_missA10Drop">
-          Miss 10s
-         </label>
-         <select class="form-select" id="dg_missA10Drop">
-          <option value="Yes">
-           Yes
-          </option>
-          <option value="No">
-           No
-          </option>
-          <option value="Any">
-           Any
-          </option>
-         </select>
-        </div>
+     </div>
+     <div class="row justify-content-center">
+      <div class="col-6">
+       <div class="input-group mb-3">
+        <label class="input-group-text" for="dg_missA10Drop">
+         Miss 10s
+        </label>
+        <select class="form-select" id="dg_missA10Drop">
+         <option value="Yes">
+          Yes
+         </option>
+         <option value="No">
+          No
+         </option>
+         <option value="Any">
+          Any
+         </option>
+        </select>
        </div>
       </div>
-      <div class="row justify-content-center">
-       <div class="col-6">
-        <div class="input-group mb-3">
-         <label class="input-group-text" for="dg_evenOddDrop">
-          Even/Odd
-         </label>
-         <select class="form-select" id="dg_evenOddDrop">
-          <option value="3-2">
-           3/2
-          </option>
-          <option value="2-3">
-           2/3
-          </option>
-          <option value="Any">
-           Any
-          </option>
-         </select>
-        </div>
+     </div>
+     <div class="row justify-content-center">
+      <div class="col-6">
+       <div class="input-group mb-3">
+        <label class="input-group-text" for="dg_evenOddDrop">
+         Even/Odd
+        </label>
+        <select class="form-select" id="dg_evenOddDrop">
+         <option value="3-2">
+          3/2
+         </option>
+         <option value="2-3">
+          2/3
+         </option>
+         <option value="Any">
+          Any
+         </option>
+        </select>
        </div>
       </div>
-      <div class="genBDiv">
-       <button class="genButton" id="dg_genButton" style="background-color: #ffff80; color: #003399; border-color: #e6e600;">
-        GENERATE
-       </button>
-      </div>
-      <div class="row justify-content-center">
-       <div class="genDisplay">
-        <span style="font-weight: bold;">
-         Generated Sequences:
-        </span>
-        <div id="dg_genList">
-         <br>
-        </div>
-        <div id="genGrand">
-        </div>
+     </div>
+     <div class="genBDiv">
+      <button class="genButton" id="dg_genButton" style="background-color: #ffff80; color: #003399; border-color: #e6e600;">
+       GENERATE
+      </button>
+     </div>
+     <div class="row justify-content-center">
+      <div class="genDisplay">
+       <span style="font-weight: bold;">
+        Generated Sequences:
+       </span>
+       <div id="dg_genList">
+        <br>
+       </div>
+       <div id="genGrand">
        </div>
       </div>
+     </div>
     </div>
    </div>
-
    <div class="row justify-content-center">
     <div class="col-lg-8">
-      <div class="instructStep">
-       <br>
-       <span style="font-size: 24px;">
-        Condition Explanations
-       </span>
-       <br>
-       <span style="font-weight: bold; text-decoration: underline;">
-        Pattern:
-       </span>
-       <span>
-        this sequence represents the numbers to pick from pre-determined groups of numbers
+     <div class="instructStep">
+      <br>
+      <span style="font-size: 24px;">
+       Condition Explanations
+      </span>
+      <br>
+      <span style="font-weight: bold; text-decoration: underline;">
+       Pattern:
+      </span>
+      <span>
+       this sequence represents the numbers to pick from pre-determined groups of numbers
                 where the criteria is how many draws ago a certain number appeared.  For example, for Lotto Max,
                 a pattern of 1-6-0 means the generated sequences will have 1 number that appeared on
                 the last draw, 6 from 2 to 12 draws ago, and 0 from older draws.  For the 6/49, numbers
                 are picked from the last draw, draws 2 to 13 ago, and older draws.  For the Daily Grand, numbers
                 are picked from the last 6 draws, draws 7 to 14 ago, and older draws.
-       </span>
-       <br>
-       <br>
-       <span style="font-weight: bold; text-decoration: underline;">
-        Miss 10s:
-       </span>
-       <span>
-        this condition means that a group of tens will not be picked for a given sequence.  For example,
+      </span>
+      <br>
+      <br>
+      <span style="font-weight: bold; text-decoration: underline;">
+       Miss 10s:
+      </span>
+      <span>
+       this condition means that a group of tens will not be picked for a given sequence.  For example,
                 if the condition is Yes, then there could be no numbers picked from 1 to 9, or 20 to 29.  Any group
                 group of tens could be missed.
-       </span>
-       <br>
-       <br>
-       <span style="font-weight: bold; text-decoration: underline;">
-        Even/Odd:
-       </span>
-       <span>
-        this option allows you to choose how many even and odd numbers will appear on a given sequence.  For
+      </span>
+      <br>
+      <br>
+      <span style="font-weight: bold; text-decoration: underline;">
+       Even/Odd:
+      </span>
+      <span>
+       this option allows you to choose how many even and odd numbers will appear on a given sequence.  For
                 example, 4/3 means there will be 4 even numbers and 3 odd numbers in all the sequences generated.
-       </span>
-       <br>
-       <br>
-       <span style="font-weight: bold; text-decoration: underline;">
-        Hidden:
-       </span>
-       <span>
-        none of the sequences generated will have four or more consecutive numbers picked.  Also, none of the
+      </span>
+      <br>
+      <br>
+      <span style="font-weight: bold; text-decoration: underline;">
+       Hidden:
+      </span>
+      <span>
+       none of the sequences generated will have four or more consecutive numbers picked.  Also, none of the
                 sequences will have four or more numbers that have appeared together in more than five previous draws.
-       </span>
-      </div>
+      </span>
+     </div>
     </div>
    </div>
-
    <div class="row justify-content-center" style="text-align: center; font-size: 10px; padding: 11px; margin-bottom: 20px;">
     <div class="col-md-5">
      <br>
      <span id="updatedDate" style="display: none;">
-      Updated May 27, 2022.
+      Updated May 28, 2022.
      </span>
      <span>
       Disclaimer: the contents of this website are for entertainment purposes only,
