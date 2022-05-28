@@ -272,7 +272,7 @@ function genL6Sequence() {
   let patternSeq = l6_patternPick.value.split("-");
   let evenOddSeq = l6_evenOdd.value.split("-");
 
-  while (l6_genList.length < 10) {
+  while (l6_genList.length < 5) {
     var newSeq = [];
     calc_newSeq(l6_zeros, l6_under14, l6_theRest, newSeq, patternSeq, 6, 49);
 
@@ -386,7 +386,7 @@ function genDGSequence() {
   let patternSeq = dg_patternPick.value.split("-");
   let evenOddSeq = dg_evenOdd.value.split("-");
 
-  while (dg_genList.length < 10) {
+  while (dg_genList.length < 5) {
     var newSeq = [];
     calc_newSeq(dg_under7, dg_under15, dg_theRest, newSeq, patternSeq, 5, 49);
 
