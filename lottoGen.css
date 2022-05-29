@@ -23,6 +23,15 @@ body {
 .instructStep {
   text-align: center;
   font-size: 16px;
+  padding: 12px;
+}
+
+.disclaimerInfo {
+  text-align: center;
+  font-size: 10px;
+  padding: 12px;
+  margin-bottom: 20px;
+  min-width: 250px;
 }
 
 .genBDiv {
