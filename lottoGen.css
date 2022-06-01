@@ -64,6 +64,24 @@ body {
   border-radius: 10px;
   width: 250px;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-size: 14px;
+}
+
+.statsButton {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.statsDisplay {
+  color: #595959;
+  background-color: white;
+  margin: 10px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 10px;
 }
