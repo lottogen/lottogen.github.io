@@ -86,3 +86,7 @@ body {
   margin-bottom: 20px;
   padding: 10px;
 }
+
+.statsRow {
+  flex-wrap: wrap;
+}

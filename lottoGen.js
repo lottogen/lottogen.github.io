@@ -551,7 +551,7 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
 function fillStatsDiv(tempStats, statsDiv) {
   var divString = "";
   for (i = 0; i < 20; i++) {
-    divString += "<tr>";
+    divString += "<tr class=\"statsRow\">";
     divString += "<td><b>Date: </b>" + tempStats[i].date + "</td>";
     divString += "<td><b>Numbers: </b>" + tempStats[i].main + " - " + tempStats[i].bType + tempStats[i].bonus + "</td>";
     divString += "<td><b>Pattern: </b>" + tempStats[i].pattern + "</td>";
