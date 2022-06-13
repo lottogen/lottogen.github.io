@@ -80,9 +80,9 @@ body {
 .statsDisplay {
   color: #595959;
   background-color: white;
+  border-radius: 10px;
   margin: 10px;
   margin-top: 0px;
   margin-bottom: 20px;
-  border-radius: 10px;
   padding: 10px;
 }

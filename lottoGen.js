@@ -121,14 +121,14 @@ function lm_preCalculations() {
   var seq052 = 0;
 
   for (var el in lm_tempStats) {
-    if ((lm_tempStats[el].zeros === 1) && (lm_tempStats[el].mid === 5) && (lm_tempStats[el].aboveMid === 1)) seq151++;
-    else if ((lm_tempStats[el].zeros === 0) && (lm_tempStats[el].mid === 6) && (lm_tempStats[el].aboveMid === 1)) seq061++;
-    else if ((lm_tempStats[el].zeros === 1) && (lm_tempStats[el].mid === 6) && (lm_tempStats[el].aboveMid === 0)) seq160++;
-    else if ((lm_tempStats[el].zeros === 0) && (lm_tempStats[el].mid === 7) && (lm_tempStats[el].aboveMid === 0)) seq070++;
-    else if ((lm_tempStats[el].zeros === 2) && (lm_tempStats[el].mid === 4) && (lm_tempStats[el].aboveMid === 1)) seq241++;
-    else if ((lm_tempStats[el].zeros === 2) && (lm_tempStats[el].mid === 5) && (lm_tempStats[el].aboveMid === 0)) seq250++;
-    else if ((lm_tempStats[el].zeros === 1) && (lm_tempStats[el].mid === 4) && (lm_tempStats[el].aboveMid === 2)) seq142++;
-    else if ((lm_tempStats[el].zeros === 0) && (lm_tempStats[el].mid === 5) && (lm_tempStats[el].aboveMid === 2)) seq052++;
+    if (lm_tempStats[el].pattern === "1-5-1") seq151++;
+    else if (lm_tempStats[el].pattern === "0-6-1") seq061++;
+    else if (lm_tempStats[el].pattern === "1-6-0") seq160++;
+    else if (lm_tempStats[el].pattern === "0-7-0") seq070++;
+    else if (lm_tempStats[el].pattern === "2-4-1") seq241++;
+    else if (lm_tempStats[el].pattern === "2-5-0") seq250++;
+    else if (lm_tempStats[el].pattern === "1-4-2") seq142++;
+    else if (lm_tempStats[el].pattern === "0-5-2") seq052++;
   }
 
   console.log("numbers with overdue of 0: ");
@@ -235,14 +235,14 @@ function l6_preCalculations() {
   var seq132 = 0;
 
   for (var el in l6_tempStats) {
-    if ((l6_tempStats[el].zeros === 1) && (l6_tempStats[el].mid === 4) && (l6_tempStats[el].aboveMid === 1)) seq141++;
-    else if ((l6_tempStats[el].zeros === 0) && (l6_tempStats[el].mid === 5) && (l6_tempStats[el].aboveMid === 1)) seq051++;
-    else if ((l6_tempStats[el].zeros === 1) && (l6_tempStats[el].mid === 5) && (l6_tempStats[el].aboveMid === 0)) seq150++;
-    else if ((l6_tempStats[el].zeros === 0) && (l6_tempStats[el].mid === 6) && (l6_tempStats[el].aboveMid === 0)) seq060++;
-    else if ((l6_tempStats[el].zeros === 2) && (l6_tempStats[el].mid === 4) && (l6_tempStats[el].aboveMid === 0)) seq240++;
-    else if ((l6_tempStats[el].zeros === 0) && (l6_tempStats[el].mid === 4) && (l6_tempStats[el].aboveMid === 2)) seq042++;
-    else if ((l6_tempStats[el].zeros === 2) && (l6_tempStats[el].mid === 3) && (l6_tempStats[el].aboveMid === 1)) seq231++;
-    else if ((l6_tempStats[el].zeros === 1) && (l6_tempStats[el].mid === 3) && (l6_tempStats[el].aboveMid === 2)) seq132++;
+    if (l6_tempStats[el].pattern === "1-4-1") seq141++;
+    else if (l6_tempStats[el].pattern === "0-5-1") seq051++;
+    else if (l6_tempStats[el].pattern === "1-5-0") seq150++;
+    else if (l6_tempStats[el].pattern === "0-6-0") seq060++;
+    else if (l6_tempStats[el].pattern === "2-4-0") seq240++;
+    else if (l6_tempStats[el].pattern === "0-4-2") seq042++;
+    else if (l6_tempStats[el].pattern === "2-3-1") seq231++;
+    else if (l6_tempStats[el].pattern === "1-3-2") seq132++;
   }
 
   console.log("numbers with overdue of 0: ");
@@ -349,14 +349,14 @@ function dg_preCalculations() {
   var seq212 = 0;
 
   for (var el in dg_tempStats) {
-    if ((dg_tempStats[el].zeros === 3) && (dg_tempStats[el].mid === 1) && (dg_tempStats[el].aboveMid === 1)) seq311++;
-    else if ((dg_tempStats[el].zeros === 3) && (dg_tempStats[el].mid === 0) && (dg_tempStats[el].aboveMid === 2)) seq302++;
-    else if ((dg_tempStats[el].zeros === 3) && (dg_tempStats[el].mid === 2) && (dg_tempStats[el].aboveMid === 0)) seq320++;
-    else if ((dg_tempStats[el].zeros === 4) && (dg_tempStats[el].mid === 1) && (dg_tempStats[el].aboveMid === 0)) seq410++;
-    else if ((dg_tempStats[el].zeros === 4) && (dg_tempStats[el].mid === 0) && (dg_tempStats[el].aboveMid === 1)) seq401++;
-    else if ((dg_tempStats[el].zeros === 2) && (dg_tempStats[el].mid === 3) && (dg_tempStats[el].aboveMid === 0)) seq230++;
-    else if ((dg_tempStats[el].zeros === 2) && (dg_tempStats[el].mid === 2) && (dg_tempStats[el].aboveMid === 1)) seq221++;
-    else if ((dg_tempStats[el].zeros === 2) && (dg_tempStats[el].mid === 1) && (dg_tempStats[el].aboveMid === 2)) seq212++;
+    if (dg_tempStats[el].pattern === "3-1-1") seq311++;
+    else if (dg_tempStats[el].pattern === "3-0-2") seq302++;
+    else if (dg_tempStats[el].pattern === "3-2-0") seq320++;
+    else if (dg_tempStats[el].pattern === "4-1-0") seq410++;
+    else if (dg_tempStats[el].pattern === "4-0-1") seq401++;
+    else if (dg_tempStats[el].pattern === "2-3-0") seq230++;
+    else if (dg_tempStats[el].pattern === "2-2-1") seq221++;
+    else if (dg_tempStats[el].pattern === "2-1-2") seq212++;
   }
 
   console.log("numbers with overdue of under 7: ");
@@ -499,6 +499,8 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
   for (var k = (history.length - 240); k < history.length; k++) {
     var seq = history[k].main.split("-");
     if (seq.length === 1) seq = history[k].main.split(" ");
+    var bonus = history[k].bonus;
+    if (seq.length == 5) bonus = history[k].grand;
 
     if (k > (history.length - 201)) {
       tempZeros = [];
@@ -510,15 +512,17 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
         else if (tempCount[el] < midLimit) tempMid.push(el);
         else tempRest.push(el);
       }
-      var grA = 0;
-      var grB = 0;
-      var grC = 0;
+      var patternGroupA = 0;
+      var patternGroupB = 0;
+      var patternGroupC = 0;
+      var seqEven = 0;
       for (var j = 0; j < seq.length; j++) {
-        if (tempZeros.includes(seq[j])) grA++;
-        else if (tempMid.includes(seq[j])) grB++;
-        else grC++;
+        if (tempZeros.includes(seq[j])) patternGroupA++;
+        else if (tempMid.includes(seq[j])) patternGroupB++;
+        else patternGroupC++;
+        if (seq[j] % 2 == 0) seqEven++;
       }
-      let newStat = {date: history[k].date, zeros: grA, mid: grB, aboveMid: grC};
+      let newStat = {date: history[k].date, main: history[k].main, bonus: bonus, pattern: patternGroupA + "-" + patternGroupB + "-" + patternGroupC, even: seqEven, miss10s: calc_missing10s(seq)};
       tempStats.push(newStat);
     }
 
