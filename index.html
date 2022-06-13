@@ -26,7 +26,7 @@
   </script>
   <link href="lottoicon.png" rel="icon">
   <title>
-   Lotto Number Generator Canada
+   Lucky Generator Canada
   </title>
   <meta content="Click the GENERATE button to get a list of potential winning numbers for lotteries in Canada! This generator allows you
            to set conditions on the sequences generated, based on previous results, to slightly increase the chance of winning. Get your lucky numbers!!" name="description">
@@ -41,14 +41,14 @@
    <div class="row justify-content-center">
     <div class="col-lg-6">
      <h1 class="topBar">
-      Lotto Number Generator Canada
+      Lucky Generator Canada
      </h1>
      <br>
      <div class="instructStep">
       <span>
        Click the GENERATE button to get a list of potential winning numbers! This generator allows you
                 to set conditions on the sequences generated, based on previous results, to slightly increase the chance of winning.
-                The condition options are ordered starting with the most common case, choosing 'Any' for all
+                Some condition options are more common than others, see lotto statistics.  Choosing 'Any' for all
                 conditions will generate almost completely random sequences (except for the hidden conditions will apply).
                 Get your lucky numbers!!
       </span>
@@ -192,7 +192,59 @@
        </button>
        <div class="collapse" id="lottoMaxStats">
         <div class="statsDisplay">
-         Coming soon...
+          <span style="font-weight: bold;">Last 20 draws:</span>
+          <table class="table table-striped">
+           <thead class="table-dark">
+             <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Winning Numbers</th>
+              <th scope="col">Pattern</th>
+              <th scope="col">Even/Odd</th>
+              <th scope="col">Missed 10s</th>
+            </tr>
+           </thead>
+           <tbody id="lm_dateStats">
+            <!--<tr>
+              <td>September 15, 2022</td>
+              <td>12 17 23 33 45 47 50 - B: 6</td>
+              <td>1-6-0</td>
+              <td>4/3</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+             <td>September 15, 2022</td>
+             <td>12 17 23 33 45 47 50 - B: 6</td>
+             <td>1-6-0</td>
+             <td>4/3</td>
+             <td>Yes</td>
+           </tr> -->
+           </tbody>
+         </table>
+         <!--<br>
+         <span style="font-weight: bold;">Conditions' top cases last 200 draws:</span>
+         <table class="table table-striped">
+          <tbody id="lottoMax200Stats">
+           <tr>
+             <th scope="row">Pattern</th>
+             <td>1-6-0: 42</td>
+             <td>1-5-1: 30</td>
+             <td>0-6-1: 25</td>
+             <td>2-5-0: 25</td>
+           </tr>
+           <tr>
+            <th scope="row">Even/Odd</th>
+            <td>4/3: 55</td>
+            <td>3/4: 63</td>
+            <td>5/2: 22</td>
+            <td>2/5: 25</td>
+           </tr>
+           <tr>
+            <th scope="row">Missed 10s</th>
+            <td>Yes: 55</td>
+            <td colspan="3">No: 63</td>
+           </tr>
+          </tbody>
+        </table>-->
         </div>
        </div>
       </div>
@@ -305,7 +357,20 @@
        </button>
        <div class="collapse" id="lottoMaxStats">
         <div class="statsDisplay">
-         Coming soon...
+            <span style="font-weight: bold;">Last 20 draws:</span>
+            <table class="table table-striped">
+             <thead class="table-dark">
+               <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Winning Numbers</th>
+                <th scope="col">Pattern</th>
+                <th scope="col">Even/Odd</th>
+                <th scope="col">Missed 10s</th>
+              </tr>
+             </thead>
+             <tbody id="l6_dateStats">
+             </tbody>
+           </table>
         </div>
        </div>
       </div>
@@ -417,7 +482,20 @@
        </button>
        <div class="collapse" id="lottoMaxStats">
         <div class="statsDisplay">
-         Coming soon...
+          <span style="font-weight: bold;">Last 20 draws:</span>
+          <table class="table table-striped">
+           <thead class="table-dark">
+             <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Winning Numbers</th>
+              <th scope="col">Pattern</th>
+              <th scope="col">Even/Odd</th>
+              <th scope="col">Missed 10s</th>
+            </tr>
+           </thead>
+           <tbody id="dg_dateStats">
+           </tbody>
+         </table>
         </div>
        </div>
       </div>
@@ -493,7 +571,7 @@
      <br>
      <span>
       &copy;
-            2022 Cristhian Sotelo.  All rights reserved.
+            2022 All rights reserved.
      </span>
      <br>
     </div>

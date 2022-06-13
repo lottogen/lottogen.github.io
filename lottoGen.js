@@ -1,5 +1,5 @@
 //Lotto Max global variables
-let maxHistory, lm_genBtn, lm_genList, lm_under13, lm_zeros, lm_theRest, lm_genListDiv, lm_patternPick, lm_totalGenList, lm_missA10, lm_evenOdd, lm_cardPick;
+let maxHistory, lm_genBtn, lm_genList, lm_under13, lm_zeros, lm_theRest, lm_genListDiv, lm_patternPick, lm_totalGenList, lm_missA10, lm_evenOdd, lm_cardPick, lm_statsDiv;
 let lm_mainCount = {
   '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0, '8':0, '9':0, '10':0,
   '11':0, '12':0, '13':0, '14':0, '15':0, '16':0, '17':0, '18':0, '19':0, '20':0,
@@ -11,7 +11,7 @@ let lm_mainFreq = JSON.parse(JSON.stringify(lm_mainCount)); //this makes a deep 
 let lm_tempCount = JSON.parse(JSON.stringify(lm_mainCount));
 
 //Lotto 6/49 global variables
-let history649, l6_genBtn, l6_genList, l6_under14, l6_zeros, l6_theRest, l6_genListDiv, l6_patternPick, l6_totalGenList, l6_missA10, l6_evenOdd, l6_cardPick;
+let history649, l6_genBtn, l6_genList, l6_under14, l6_zeros, l6_theRest, l6_genListDiv, l6_patternPick, l6_totalGenList, l6_missA10, l6_evenOdd, l6_cardPick, l6_statsDiv;
 let l6_mainCount = {
   '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0, '8':0, '9':0, '10':0,
   '11':0, '12':0, '13':0, '14':0, '15':0, '16':0, '17':0, '18':0, '19':0, '20':0,
@@ -23,7 +23,7 @@ let l6_mainFreq = JSON.parse(JSON.stringify(l6_mainCount)); //this makes a deep 
 let l6_tempCount = JSON.parse(JSON.stringify(l6_mainCount));
 
 //Daily Grand global variables
-let dgHistory, dg_genBtn, dg_genList, dg_under7, dg_under15, dg_theRest, dg_genListDiv, dg_patternPick, dg_totalGenList, dg_missA10, dg_evenOdd, dg_cardPick;
+let dgHistory, dg_genBtn, dg_genList, dg_under7, dg_under15, dg_theRest, dg_genListDiv, dg_patternPick, dg_totalGenList, dg_missA10, dg_evenOdd, dg_cardPick, dg_statsDiv;
 let grandCount = {
   '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0
 };
@@ -100,6 +100,7 @@ function lm_preCalculations() {
   lm_patternPick = document.getElementById('lm_patternDrop');
   lm_missA10 = document.getElementById('lm_missA10Drop');
   lm_evenOdd = document.getElementById('lm_evenOddDrop');
+  lm_statsDiv = document.getElementById('lm_dateStats');
   //checkBtn = document.getElementById('checkButton');
 
   maxHistory.reverse();
@@ -147,6 +148,8 @@ function lm_preCalculations() {
   console.log("main number frequency for overdue pattern 2 5 0: " + seq250);
   console.log("main number frequency for overdue pattern 1 4 2: " + seq142);
   console.log("main number frequency for overdue pattern 0 5 2: " + seq052);
+
+  fillStatsDiv(lm_tempStats, lm_statsDiv);
 
   lm_genBtn.onclick = function() {
     genLMSequence();
@@ -215,6 +218,7 @@ function l6_preCalculations() {
   l6_patternPick = document.getElementById('l6_patternDrop');
   l6_missA10 = document.getElementById('l6_missA10Drop');
   l6_evenOdd = document.getElementById('l6_evenOddDrop');
+  l6_statsDiv = document.getElementById('l6_dateStats');
 
   history649.reverse();
   l6_zeros = [];
@@ -261,6 +265,8 @@ function l6_preCalculations() {
   console.log("main number frequency for overdue pattern 0 4 2: " + seq042);
   console.log("main number frequency for overdue pattern 2 3 1: " + seq231);
   console.log("main number frequency for overdue pattern 1 3 2: " + seq132);
+
+  fillStatsDiv(l6_tempStats, l6_statsDiv);
 
   l6_genBtn.onclick = function() {
     genL6Sequence();
@@ -329,6 +335,7 @@ function dg_preCalculations() {
   dg_missA10 = document.getElementById('dg_missA10Drop');
   dg_evenOdd = document.getElementById('dg_evenOddDrop');
   genGrDiv = document.getElementById('genGrand');
+  dg_statsDiv = document.getElementById('dg_dateStats');
 
   dgHistory.reverse();
   dg_under7 = [];
@@ -375,6 +382,8 @@ function dg_preCalculations() {
   console.log("main number overdue pattern 2 3 0: " + seq230);
   console.log("main number overdue pattern 2 2 1: " + seq221);
   console.log("main number overdue pattern 2 1 2: " + seq212);
+
+  fillStatsDiv(dg_tempStats, dg_statsDiv);
 
   dg_genBtn.onclick = function() {
     genDGSequence();
@@ -500,7 +509,11 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
     var seq = history[k].main.split("-");
     if (seq.length === 1) seq = history[k].main.split(" ");
     var bonus = history[k].bonus;
-    if (seq.length == 5) bonus = history[k].grand;
+    var bType = "B: ";
+    if (seq.length == 5) {
+      bonus = history[k].grand;
+      bType = "G: ";
+    }
 
     if (k > (history.length - 201)) {
       tempZeros = [];
@@ -522,7 +535,7 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
         else patternGroupC++;
         if (seq[j] % 2 == 0) seqEven++;
       }
-      let newStat = {date: history[k].date, main: history[k].main, bonus: bonus, pattern: patternGroupA + "-" + patternGroupB + "-" + patternGroupC, even: seqEven, miss10s: calc_missing10s(seq)};
+      let newStat = {date: history[k].date, main: history[k].main, seqLength: seq.length, bonus: bonus, bType: bType, pattern: patternGroupA + "-" + patternGroupB + "-" + patternGroupC, even: seqEven, miss10s: calc_missing10s(seq)};
       tempStats.push(newStat);
     }
 
@@ -533,6 +546,21 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
       tempCount[seq[j]] = 0;
     }
   }
+}
+
+function fillStatsDiv(tempStats, statsDiv) {
+  var divString = "";
+  for (i = 0; i < 20; i++) {
+    divString += "<tr>";
+    divString += "<td>" + tempStats[i].date + "</td>";
+    divString += "<td>" + tempStats[i].main + " - " + tempStats[i].bType + tempStats[i].bonus + "</td>";
+    divString += "<td>" + tempStats[i].pattern + "</td>";
+    divString += "<td>" + tempStats[i].even + "/" + (tempStats[i].seqLength - tempStats[i].even) + "</td>";
+    if (tempStats[i].miss10s) divString += "<td>Yes</td>";
+    else divString += "<td>No</td>";
+    divString += "</tr>";
+  }
+  statsDiv.innerHTML = divString;
 }
 
 function calc_newSeq(zeros, mid, aboveMid, newSeq, patternSeq, seqLength, seqRange) {
