@@ -92,3 +92,7 @@ body {
   flex-flow: row;
   flex-wrap: wrap;
 }
+
+td {
+  min-width: 250px;
+}
