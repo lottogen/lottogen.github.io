@@ -551,14 +551,14 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
 function fillStatsDiv(tempStats, statsDiv) {
   var divString = "";
   for (i = 0; i < 20; i++) {
-    divString += "<tr><td>";
-    divString += "<b>Date: </b>" + tempStats[i].date + "&#9;";
-    divString += "<b>Numbers: </b>" + tempStats[i].main + " - " + tempStats[i].bType + tempStats[i].bonus + "&#9;";
-    divString += "<b>Pattern: </b>" + tempStats[i].pattern + "&#9;";
-    divString += "<b>Even/Odd: </b>" + tempStats[i].even + "/" + (tempStats[i].seqLength - tempStats[i].even) + "&#9;";
-    if (tempStats[i].miss10s) divString += "<b>Miss 10s: </b>Yes";
-    else divString += "<b>Miss 10s: </b>No";
-    divString += "</td></tr>";
+    divString += "<tr>";
+    divString += "<td><b>Date: </b>" + tempStats[i].date + "</td>";
+    divString += "<td><b>Numbers: </b>" + tempStats[i].main + " - " + tempStats[i].bType + tempStats[i].bonus + "</td>";
+    divString += "<td><b>Pattern: </b>" + tempStats[i].pattern + "</td>";
+    divString += "<td><b>Even/Odd: </b>" + tempStats[i].even + "/" + (tempStats[i].seqLength - tempStats[i].even) + "</td>";
+    if (tempStats[i].miss10s) divString += "<td><b>Miss 10s: </b>Yes</td>";
+    else divString += "<td><b>Miss 10s: </b>No</td>";
+    divString += "</tr>";
   }
   statsDiv.innerHTML = divString;
 }
