@@ -92,9 +92,12 @@ body {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  width: 100%;
   color: black;
   padding: 4px;
+}
+
+tbody {
+  width: 100%;
 }
 
 .evenRow {
@@ -106,9 +109,9 @@ body {
 }
 
 .tdMD {
-  min-width: 160px;
+  min-width: 150px;
 }
 
 .tdSM {
-  min-width: 80px;
+  min-width: 70px;
 }
