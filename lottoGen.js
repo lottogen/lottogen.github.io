@@ -553,12 +553,13 @@ function fillStatsDiv(tempStats, statsDiv) {
   var evenRow = "";
   for (i = 0; i < 20; i++) {
     divString += "<tr class=\"statsRow" + evenRow + "\">";
-    divString += "<td><b>Date: </b>" + tempStats[i].date + "</td>";
-    divString += "<td><b>Numbers: </b>" + tempStats[i].main + " - " + tempStats[i].bType + tempStats[i].bonus + "</td>";
-    divString += "<td><b>Pattern: </b>" + tempStats[i].pattern + "</td>";
-    divString += "<td><b>Even/Odd: </b>" + tempStats[i].even + "/" + (tempStats[i].seqLength - tempStats[i].even) + "</td>";
-    if (tempStats[i].miss10s) divString += "<td><b>Miss 10s: </b>Yes</td>";
-    else divString += "<td><b>Miss 10s: </b>No</td>";
+    divString += "<td class=\"tdLG\"><b>Date: </b>" + tempStats[i].date + "</td>";
+    divString += "<td class=\"tdLG\"><b>Numbers: </b>" + tempStats[i].main + "</td>";
+    divString += "<td class=\"tdSM\"><b>" + tempStats[i].bType + "</b>" + tempStats[i].bonus + "</td>";
+    divString += "<td class=\"tdMD\"><b>Pattern: </b>" + tempStats[i].pattern + "</td>";
+    divString += "<td class=\"tdMD\"><b>Even/Odd: </b>" + tempStats[i].even + "/" + (tempStats[i].seqLength - tempStats[i].even) + "</td>";
+    if (tempStats[i].miss10s) divString += "<td class=\"tdMD\"><b>Miss 10s: </b>Yes</td>";
+    else divString += "<td class=\"tdMD\"><b>Miss 10s: </b>No</td>";
     divString += "</tr>";
     if (evenRow == "") evenRow = " evenRow";
     else evenRow = "";

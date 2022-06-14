@@ -101,6 +101,14 @@ body {
   background-color: #e9ecef;
 }
 
-td {
+.tdLG {
   min-width: 240px;
+}
+
+.tdMD {
+  min-width: 160px;
+}
+
+.tdSM {
+  min-width: 80px;
 }
