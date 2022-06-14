@@ -13,7 +13,8 @@ body {
 }
 
 .dropdown_custom {
-  min-width: 250px;
+  min-width: 260px;
+  max-width: 280px;
 }
 
 .lottoCard-bg {
@@ -92,6 +93,10 @@ body {
   flex-flow: row;
   flex-wrap: wrap;
   width: 100%;
+}
+
+.evenRow {
+  background-color: #f8f9fa;
 }
 
 td {

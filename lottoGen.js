@@ -550,8 +550,9 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
 
 function fillStatsDiv(tempStats, statsDiv) {
   var divString = "";
+  var evenRow = "";
   for (i = 0; i < 20; i++) {
-    divString += "<tr class=\"statsRow\">";
+    divString += "<tr class=\"statsRow" + evenRow + "\">";
     divString += "<td><b>Date: </b>" + tempStats[i].date + "</td>";
     divString += "<td><b>Numbers: </b>" + tempStats[i].main + " - " + tempStats[i].bType + tempStats[i].bonus + "</td>";
     divString += "<td><b>Pattern: </b>" + tempStats[i].pattern + "</td>";
@@ -559,6 +560,8 @@ function fillStatsDiv(tempStats, statsDiv) {
     if (tempStats[i].miss10s) divString += "<td><b>Miss 10s: </b>Yes</td>";
     else divString += "<td><b>Miss 10s: </b>No</td>";
     divString += "</tr>";
+    if (evenRow == "") evenRow = " evenRow";
+    else evenRow = "";
   }
   statsDiv.innerHTML = divString;
 }
