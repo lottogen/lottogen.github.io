@@ -96,10 +96,6 @@ body {
   padding: 4px;
 }
 
-tbody {
-  width: 100%;
-}
-
 .evenRow {
   background-color: #e9ecef;
 }
