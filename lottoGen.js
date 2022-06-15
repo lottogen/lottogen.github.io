@@ -120,6 +120,11 @@ function lm_preCalculations() {
   var seq250 = 0;
   var seq142 = 0;
   var seq052 = 0;
+  var seq232 = 0;
+  var seq133 = 0;
+  var seq331 = 0;
+  var seq340 = 0;
+  var seq043 = 0;
 
   for (var el in lm_tempStats) {
     if (lm_tempStats[el].pattern === "1-5-1") seq151++;
@@ -130,6 +135,11 @@ function lm_preCalculations() {
     else if (lm_tempStats[el].pattern === "2-5-0") seq250++;
     else if (lm_tempStats[el].pattern === "1-4-2") seq142++;
     else if (lm_tempStats[el].pattern === "0-5-2") seq052++;
+    else if (lm_tempStats[el].pattern === "2-3-2") seq232++;
+    else if (lm_tempStats[el].pattern === "1-3-3") seq133++;
+    else if (lm_tempStats[el].pattern === "3-3-1") seq331++;
+    else if (lm_tempStats[el].pattern === "3-4-0") seq340++;
+    else if (lm_tempStats[el].pattern === "0-4-3") seq043++;
   }
 
   console.log("numbers with overdue of 0: ");
@@ -148,6 +158,11 @@ function lm_preCalculations() {
   console.log("main number frequency for overdue pattern 2 5 0: " + seq250);
   console.log("main number frequency for overdue pattern 1 4 2: " + seq142);
   console.log("main number frequency for overdue pattern 0 5 2: " + seq052);
+  console.log("main number frequency for overdue pattern 2 3 2: " + seq232);
+  console.log("main number frequency for overdue pattern 1 3 3: " + seq133);
+  console.log("main number frequency for overdue pattern 3 3 1: " + seq331);
+  console.log("main number frequency for overdue pattern 3 4 0: " + seq340);
+  console.log("main number frequency for overdue pattern 0 4 3: " + seq043);
 
   fillStatsDiv(lm_tempStats, lm_statsDiv);
 
