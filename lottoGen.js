@@ -578,7 +578,7 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
 function fillStatsDiv(tempStats, statsDiv) {
   var divString = "";
   var evenRow = "";
-  for (i = 0; i < 40; i++) {
+  for (i = 0; i < 30; i++) {
     divString += "<tr class=\"statsRow" + evenRow + "\">";
     divString += "<td class=\"tdLG\"><b>Date: </b>" + tempStats[i].date + "</td>";
     divString += "<td class=\"tdLG\"><b>Numbers: </b>" + tempStats[i].main + "</td>";
