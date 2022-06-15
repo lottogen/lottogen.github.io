@@ -88,6 +88,10 @@ body {
   padding: 10px;
 }
 
+table {
+  width: 100%;
+}
+
 .statsRow {
   display: flex;
   flex-flow: row;
