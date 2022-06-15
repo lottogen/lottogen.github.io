@@ -252,6 +252,8 @@ function l6_preCalculations() {
   var seq042 = 0;
   var seq231 = 0;
   var seq132 = 0;
+  var seq330 = 0;
+  var seq033 = 0;
 
   for (var el in l6_tempStats) {
     if (l6_tempStats[el].pattern === "1-4-1") seq141++;
@@ -262,6 +264,8 @@ function l6_preCalculations() {
     else if (l6_tempStats[el].pattern === "0-4-2") seq042++;
     else if (l6_tempStats[el].pattern === "2-3-1") seq231++;
     else if (l6_tempStats[el].pattern === "1-3-2") seq132++;
+    else if (l6_tempStats[el].pattern === "3-3-0") seq330++;
+    else if (l6_tempStats[el].pattern === "0-3-3") seq033++;
   }
 
   console.log("numbers with overdue of 0: ");
@@ -280,6 +284,8 @@ function l6_preCalculations() {
   console.log("main number frequency for overdue pattern 0 4 2: " + seq042);
   console.log("main number frequency for overdue pattern 2 3 1: " + seq231);
   console.log("main number frequency for overdue pattern 1 3 2: " + seq132);
+  console.log("main number frequency for overdue pattern 3 3 0: " + seq330);
+  console.log("main number frequency for overdue pattern 0 3 3: " + seq033);
 
   fillStatsDiv(l6_tempStats, l6_statsDiv);
 
@@ -369,6 +375,8 @@ function dg_preCalculations() {
   var seq230 = 0;
   var seq221 = 0;
   var seq212 = 0;
+  var seq122 = 0;
+  var seq131 = 0;
 
   for (var el in dg_tempStats) {
     if (dg_tempStats[el].pattern === "3-1-1") seq311++;
@@ -379,6 +387,8 @@ function dg_preCalculations() {
     else if (dg_tempStats[el].pattern === "2-3-0") seq230++;
     else if (dg_tempStats[el].pattern === "2-2-1") seq221++;
     else if (dg_tempStats[el].pattern === "2-1-2") seq212++;
+    else if (dg_tempStats[el].pattern === "1-2-2") seq122++;
+    else if (dg_tempStats[el].pattern === "1-3-1") seq131++;
   }
 
   console.log("numbers with overdue of under 7: ");
@@ -397,6 +407,8 @@ function dg_preCalculations() {
   console.log("main number overdue pattern 2 3 0: " + seq230);
   console.log("main number overdue pattern 2 2 1: " + seq221);
   console.log("main number overdue pattern 2 1 2: " + seq212);
+  console.log("main number overdue pattern 1 2 2: " + seq122);
+  console.log("main number overdue pattern 1 3 1: " + seq131);
 
   fillStatsDiv(dg_tempStats, dg_statsDiv);
 
@@ -566,7 +578,7 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
 function fillStatsDiv(tempStats, statsDiv) {
   var divString = "";
   var evenRow = "";
-  for (i = 0; i < 20; i++) {
+  for (i = 0; i < 40; i++) {
     divString += "<tr class=\"statsRow" + evenRow + "\">";
     divString += "<td class=\"tdLG\"><b>Date: </b>" + tempStats[i].date + "</td>";
     divString += "<td class=\"tdLG\"><b>Numbers: </b>" + tempStats[i].main + "</td>";
