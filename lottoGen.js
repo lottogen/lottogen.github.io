@@ -10,6 +10,8 @@ let lm_mainCount = {
 let lm_mainFreq = JSON.parse(JSON.stringify(lm_mainCount)); //this makes a deep copy
 let lm_tempCount = JSON.parse(JSON.stringify(lm_mainCount));
 let lm_patternCount = {'1-5-1':0, '1-6-0':0, '0-6-1':0};
+let lm_evenCount = {'4/3':0, '3/4':0, '5/2':0};
+let lm_miss10Count = {'Yes':0, 'No':0};
 
 //Lotto 6/49 global variables
 let history649, l6_genBtn, l6_genList, l6_under14, l6_zeros, l6_theRest, l6_genListDiv, l6_patternPick, l6_totalGenList, l6_missA10, l6_evenOdd, l6_cardPick, l6_statsDiv;
@@ -23,6 +25,8 @@ let l6_mainCount = {
 let l6_mainFreq = JSON.parse(JSON.stringify(l6_mainCount)); //this makes a deep copy
 let l6_tempCount = JSON.parse(JSON.stringify(l6_mainCount));
 let l6_patternCount = {'1-4-1':0, '0-5-1':0, '1-5-0':0};
+let l6_evenCount = {'3/3':0, '4/2':0, '2/4':0};
+let l6_miss10Count = {'Yes':0, 'No':0};
 
 //Daily Grand global variables
 let dgHistory, dg_genBtn, dg_genList, dg_under7, dg_under15, dg_theRest, dg_genListDiv, dg_patternPick, dg_totalGenList, dg_missA10, dg_evenOdd, dg_cardPick, dg_statsDiv;
@@ -34,6 +38,8 @@ let dg_mainFreq = JSON.parse(JSON.stringify(l6_mainCount)); //this makes a deep 
 let grandFreq = JSON.parse(JSON.stringify(grandCount));
 let dg_tempCount = JSON.parse(JSON.stringify(l6_mainCount));
 let dg_patternCount = {'3-1-1':0, '3-0-2':0, '3-2-0':0};
+let dg_evenCount = {'3/2':0, '4/1':0, '1/4':0};
+let dg_miss10Count = {'Yes':0, 'No':0};
 
 let lotteryCards = ["lottoMaxCard", "lotto649Card", "dailyGrandCard"];
 
@@ -114,7 +120,7 @@ function lm_preCalculations() {
 
   var lm_tempStats = [];
   calc_tempStats(maxHistory, lm_tempCount, lm_tempStats, 1, 13);
-  calc_patternFreq(lm_patternCount, lm_tempStats);
+  calc_conditionFreq(lm_patternCount, lm_evenCount, lm_miss10Count, lm_tempStats);
 
   console.log("numbers with overdue of 0: ");
   console.log(lm_zeros);
@@ -124,7 +130,12 @@ function lm_preCalculations() {
   console.log(lm_theRest);
   console.log("main number overdue patterns by date: ");
   console.log(lm_tempStats.reverse());
+  console.log("pattern frequencies: ");
   console.log(lm_patternCount);
+  console.log("even/odd frequencies: ");
+  console.log(lm_evenCount);
+  console.log("miss 10s frequencies: ");
+  console.log(lm_miss10Count);
 
   fillStatsDiv(lm_tempStats, lm_statsDiv);
 
@@ -205,7 +216,7 @@ function l6_preCalculations() {
 
   var l6_tempStats = [];
   calc_tempStats(history649, l6_tempCount, l6_tempStats, 1, 14);
-  calc_patternFreq(l6_patternCount, l6_tempStats);
+  calc_conditionFreq(l6_patternCount, l6_evenCount, l6_miss10Count, l6_tempStats);
 
   console.log("numbers with overdue of 0: ");
   console.log(l6_zeros);
@@ -215,7 +226,12 @@ function l6_preCalculations() {
   console.log(l6_theRest);
   console.log("main number overdue patterns by date: ");
   console.log(l6_tempStats.reverse());
+  console.log("pattern frequencies: ");
   console.log(l6_patternCount);
+  console.log("even/odd frequencies: ");
+  console.log(l6_evenCount);
+  console.log("miss 10s frequencies: ");
+  console.log(l6_miss10Count);
 
   fillStatsDiv(l6_tempStats, l6_statsDiv);
 
@@ -296,7 +312,7 @@ function dg_preCalculations() {
 
   var dg_tempStats = [];
   calc_tempStats(dgHistory, dg_tempCount, dg_tempStats, 7, 15);
-  calc_patternFreq(dg_patternCount, dg_tempStats);
+  calc_conditionFreq(dg_patternCount, dg_evenCount, dg_miss10Count, dg_tempStats);
 
   console.log("numbers with overdue of under 7: ");
   console.log(dg_under7);
@@ -306,7 +322,12 @@ function dg_preCalculations() {
   console.log(dg_theRest);
   console.log("main number overdue statuses by date: ");
   console.log(dg_tempStats.reverse());
+  console.log("pattern frequencies: ");
   console.log(dg_patternCount);
+  console.log("even/odd frequencies: ");
+  console.log(dg_evenCount);
+  console.log("miss 10s frequencies: ");
+  console.log(dg_miss10Count);
 
   fillStatsDiv(dg_tempStats, dg_statsDiv);
 
@@ -473,12 +494,20 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
   }
 }
 
-function calc_patternFreq(patternCount, tempStats) {
+function calc_conditionFreq(patternCount, evenCount, miss10Count, tempStats) {
   for (var i = 0; i < tempStats.length; i++) {
     if (patternCount[tempStats[i].pattern] === undefined) {
       patternCount[tempStats[i].pattern] = 1;
     }
     else patternCount[tempStats[i].pattern]++;
+
+    if (evenCount[tempStats[i].even] === undefined) {
+      evenCount[tempStats[i].even] = 1;
+    }
+    else evenCount[tempStats[i].even]++;
+
+    if (tempStats[i].miss10s) miss10Count['Yes']++;
+    else miss10Count['No']++;
   }
 }
 
