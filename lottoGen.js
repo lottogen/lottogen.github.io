@@ -9,6 +9,7 @@ let lm_mainCount = {
 }
 let lm_mainFreq = JSON.parse(JSON.stringify(lm_mainCount)); //this makes a deep copy
 let lm_tempCount = JSON.parse(JSON.stringify(lm_mainCount));
+let lm_patternCount = {'1-5-1':0, '1-6-0':0, '0-6-1':0};
 
 //Lotto 6/49 global variables
 let history649, l6_genBtn, l6_genList, l6_under14, l6_zeros, l6_theRest, l6_genListDiv, l6_patternPick, l6_totalGenList, l6_missA10, l6_evenOdd, l6_cardPick, l6_statsDiv;
@@ -21,6 +22,7 @@ let l6_mainCount = {
 }
 let l6_mainFreq = JSON.parse(JSON.stringify(l6_mainCount)); //this makes a deep copy
 let l6_tempCount = JSON.parse(JSON.stringify(l6_mainCount));
+let l6_patternCount = {'1-4-1':0, '0-5-1':0, '1-5-0':0};
 
 //Daily Grand global variables
 let dgHistory, dg_genBtn, dg_genList, dg_under7, dg_under15, dg_theRest, dg_genListDiv, dg_patternPick, dg_totalGenList, dg_missA10, dg_evenOdd, dg_cardPick, dg_statsDiv;
@@ -31,6 +33,7 @@ let dg_mainCount = JSON.parse(JSON.stringify(l6_mainCount));
 let dg_mainFreq = JSON.parse(JSON.stringify(l6_mainCount)); //this makes a deep copy
 let grandFreq = JSON.parse(JSON.stringify(grandCount));
 let dg_tempCount = JSON.parse(JSON.stringify(l6_mainCount));
+let dg_patternCount = {'3-1-1':0, '3-0-2':0, '3-2-0':0};
 
 let lotteryCards = ["lottoMaxCard", "lotto649Card", "dailyGrandCard"];
 
@@ -111,36 +114,7 @@ function lm_preCalculations() {
 
   var lm_tempStats = [];
   calc_tempStats(maxHistory, lm_tempCount, lm_tempStats, 1, 13);
-
-  var seq151 = 0;
-  var seq061 = 0;
-  var seq160 = 0;
-  var seq070 = 0;
-  var seq241 = 0;
-  var seq250 = 0;
-  var seq142 = 0;
-  var seq052 = 0;
-  var seq232 = 0;
-  var seq133 = 0;
-  var seq331 = 0;
-  var seq340 = 0;
-  var seq043 = 0;
-
-  for (var el in lm_tempStats) {
-    if (lm_tempStats[el].pattern === "1-5-1") seq151++;
-    else if (lm_tempStats[el].pattern === "0-6-1") seq061++;
-    else if (lm_tempStats[el].pattern === "1-6-0") seq160++;
-    else if (lm_tempStats[el].pattern === "0-7-0") seq070++;
-    else if (lm_tempStats[el].pattern === "2-4-1") seq241++;
-    else if (lm_tempStats[el].pattern === "2-5-0") seq250++;
-    else if (lm_tempStats[el].pattern === "1-4-2") seq142++;
-    else if (lm_tempStats[el].pattern === "0-5-2") seq052++;
-    else if (lm_tempStats[el].pattern === "2-3-2") seq232++;
-    else if (lm_tempStats[el].pattern === "1-3-3") seq133++;
-    else if (lm_tempStats[el].pattern === "3-3-1") seq331++;
-    else if (lm_tempStats[el].pattern === "3-4-0") seq340++;
-    else if (lm_tempStats[el].pattern === "0-4-3") seq043++;
-  }
+  calc_patternFreq(lm_patternCount, lm_tempStats);
 
   console.log("numbers with overdue of 0: ");
   console.log(lm_zeros);
@@ -150,19 +124,7 @@ function lm_preCalculations() {
   console.log(lm_theRest);
   console.log("main number overdue patterns by date: ");
   console.log(lm_tempStats.reverse());
-  console.log("main number frequency for overdue pattern 1 5 1: " + seq151);
-  console.log("main number frequency for overdue pattern 0 6 1: " + seq061);
-  console.log("main number frequency for overdue pattern 1 6 0: " + seq160);
-  console.log("main number frequency for overdue pattern 0 7 0: " + seq070);
-  console.log("main number frequency for overdue pattern 2 4 1: " + seq241);
-  console.log("main number frequency for overdue pattern 2 5 0: " + seq250);
-  console.log("main number frequency for overdue pattern 1 4 2: " + seq142);
-  console.log("main number frequency for overdue pattern 0 5 2: " + seq052);
-  console.log("main number frequency for overdue pattern 2 3 2: " + seq232);
-  console.log("main number frequency for overdue pattern 1 3 3: " + seq133);
-  console.log("main number frequency for overdue pattern 3 3 1: " + seq331);
-  console.log("main number frequency for overdue pattern 3 4 0: " + seq340);
-  console.log("main number frequency for overdue pattern 0 4 3: " + seq043);
+  console.log(lm_patternCount);
 
   fillStatsDiv(lm_tempStats, lm_statsDiv);
 
@@ -243,30 +205,7 @@ function l6_preCalculations() {
 
   var l6_tempStats = [];
   calc_tempStats(history649, l6_tempCount, l6_tempStats, 1, 14);
-
-  var seq141 = 0;
-  var seq051 = 0;
-  var seq150 = 0;
-  var seq060 = 0;
-  var seq240 = 0;
-  var seq042 = 0;
-  var seq231 = 0;
-  var seq132 = 0;
-  var seq330 = 0;
-  var seq033 = 0;
-
-  for (var el in l6_tempStats) {
-    if (l6_tempStats[el].pattern === "1-4-1") seq141++;
-    else if (l6_tempStats[el].pattern === "0-5-1") seq051++;
-    else if (l6_tempStats[el].pattern === "1-5-0") seq150++;
-    else if (l6_tempStats[el].pattern === "0-6-0") seq060++;
-    else if (l6_tempStats[el].pattern === "2-4-0") seq240++;
-    else if (l6_tempStats[el].pattern === "0-4-2") seq042++;
-    else if (l6_tempStats[el].pattern === "2-3-1") seq231++;
-    else if (l6_tempStats[el].pattern === "1-3-2") seq132++;
-    else if (l6_tempStats[el].pattern === "3-3-0") seq330++;
-    else if (l6_tempStats[el].pattern === "0-3-3") seq033++;
-  }
+  calc_patternFreq(l6_patternCount, l6_tempStats);
 
   console.log("numbers with overdue of 0: ");
   console.log(l6_zeros);
@@ -276,16 +215,7 @@ function l6_preCalculations() {
   console.log(l6_theRest);
   console.log("main number overdue patterns by date: ");
   console.log(l6_tempStats.reverse());
-  console.log("main number frequency for overdue pattern 1 4 1: " + seq141);
-  console.log("main number frequency for overdue pattern 0 5 1: " + seq051);
-  console.log("main number frequency for overdue pattern 1 5 0: " + seq150);
-  console.log("main number frequency for overdue pattern 0 6 0: " + seq060);
-  console.log("main number frequency for overdue pattern 2 4 0: " + seq240);
-  console.log("main number frequency for overdue pattern 0 4 2: " + seq042);
-  console.log("main number frequency for overdue pattern 2 3 1: " + seq231);
-  console.log("main number frequency for overdue pattern 1 3 2: " + seq132);
-  console.log("main number frequency for overdue pattern 3 3 0: " + seq330);
-  console.log("main number frequency for overdue pattern 0 3 3: " + seq033);
+  console.log(l6_patternCount);
 
   fillStatsDiv(l6_tempStats, l6_statsDiv);
 
@@ -366,30 +296,7 @@ function dg_preCalculations() {
 
   var dg_tempStats = [];
   calc_tempStats(dgHistory, dg_tempCount, dg_tempStats, 7, 15);
-
-  var seq311 = 0;
-  var seq302 = 0;
-  var seq320 = 0;
-  var seq410 = 0;
-  var seq401 = 0;
-  var seq230 = 0;
-  var seq221 = 0;
-  var seq212 = 0;
-  var seq122 = 0;
-  var seq131 = 0;
-
-  for (var el in dg_tempStats) {
-    if (dg_tempStats[el].pattern === "3-1-1") seq311++;
-    else if (dg_tempStats[el].pattern === "3-0-2") seq302++;
-    else if (dg_tempStats[el].pattern === "3-2-0") seq320++;
-    else if (dg_tempStats[el].pattern === "4-1-0") seq410++;
-    else if (dg_tempStats[el].pattern === "4-0-1") seq401++;
-    else if (dg_tempStats[el].pattern === "2-3-0") seq230++;
-    else if (dg_tempStats[el].pattern === "2-2-1") seq221++;
-    else if (dg_tempStats[el].pattern === "2-1-2") seq212++;
-    else if (dg_tempStats[el].pattern === "1-2-2") seq122++;
-    else if (dg_tempStats[el].pattern === "1-3-1") seq131++;
-  }
+  calc_patternFreq(dg_patternCount, dg_tempStats);
 
   console.log("numbers with overdue of under 7: ");
   console.log(dg_under7);
@@ -399,16 +306,7 @@ function dg_preCalculations() {
   console.log(dg_theRest);
   console.log("main number overdue statuses by date: ");
   console.log(dg_tempStats.reverse());
-  console.log("main number overdue pattern 3 1 1: " + seq311);
-  console.log("main number overdue pattern 3 0 2: " + seq302);
-  console.log("main number overdue pattern 3 2 0: " + seq320);
-  console.log("main number overdue pattern 4 1 0: " + seq410);
-  console.log("main number overdue pattern 4 0 1: " + seq401);
-  console.log("main number overdue pattern 2 3 0: " + seq230);
-  console.log("main number overdue pattern 2 2 1: " + seq221);
-  console.log("main number overdue pattern 2 1 2: " + seq212);
-  console.log("main number overdue pattern 1 2 2: " + seq122);
-  console.log("main number overdue pattern 1 3 1: " + seq131);
+  console.log(dg_patternCount);
 
   fillStatsDiv(dg_tempStats, dg_statsDiv);
 
@@ -572,6 +470,15 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
     for (var j=0; j < seq.length; j++) {
       tempCount[seq[j]] = 0;
     }
+  }
+}
+
+function calc_patternFreq(patternCount, tempStats) {
+  for (var i = 0; i < tempStats.length; i++) {
+    if (patternCount[tempStats[i].pattern] === undefined) {
+      patternCount[tempStats[i].pattern] = 1;
+    }
+    else patternCount[tempStats[i].pattern]++;
   }
 }
 
