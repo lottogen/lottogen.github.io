@@ -120,7 +120,7 @@ function lm_preCalculations() {
 
   var lm_tempStats = [];
   calc_tempStats(maxHistory, lm_tempCount, lm_tempStats, 1, 13);
-  calc_conditionFreq(lm_patternCount, lm_evenCount, lm_miss10Count, lm_tempStats);
+  calc_conditionFreq(lm_patternCount, lm_evenCount, lm_miss10Count, lm_tempStats, 7);
 
   console.log("numbers with overdue of 0: ");
   console.log(lm_zeros);
@@ -216,7 +216,7 @@ function l6_preCalculations() {
 
   var l6_tempStats = [];
   calc_tempStats(history649, l6_tempCount, l6_tempStats, 1, 14);
-  calc_conditionFreq(l6_patternCount, l6_evenCount, l6_miss10Count, l6_tempStats);
+  calc_conditionFreq(l6_patternCount, l6_evenCount, l6_miss10Count, l6_tempStats, 6);
 
   console.log("numbers with overdue of 0: ");
   console.log(l6_zeros);
@@ -312,7 +312,7 @@ function dg_preCalculations() {
 
   var dg_tempStats = [];
   calc_tempStats(dgHistory, dg_tempCount, dg_tempStats, 7, 15);
-  calc_conditionFreq(dg_patternCount, dg_evenCount, dg_miss10Count, dg_tempStats);
+  calc_conditionFreq(dg_patternCount, dg_evenCount, dg_miss10Count, dg_tempStats, 5);
 
   console.log("numbers with overdue of under 7: ");
   console.log(dg_under7);
@@ -494,17 +494,17 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
   }
 }
 
-function calc_conditionFreq(patternCount, evenCount, miss10Count, tempStats) {
+function calc_conditionFreq(patternCount, evenCount, miss10Count, tempStats, lottoSeqSize) {
   for (var i = 0; i < tempStats.length; i++) {
     if (patternCount[tempStats[i].pattern] === undefined) {
       patternCount[tempStats[i].pattern] = 1;
     }
     else patternCount[tempStats[i].pattern]++;
 
-    if (evenCount[tempStats[i].even] === undefined) {
-      evenCount[tempStats[i].even] = 1;
+    if (evenCount[tempStats[i].even + "/" + (lottoSeqSize - tempStats[i].even)] === undefined) {
+      evenCount[tempStats[i].even + "/" + (lottoSeqSize - tempStats[i].even)] = 1;
     }
-    else evenCount[tempStats[i].even]++;
+    else evenCount[tempStats[i].even + "/" + (lottoSeqSize - tempStats[i].even)]++;
 
     if (tempStats[i].miss10s) miss10Count['Yes']++;
     else miss10Count['No']++;
