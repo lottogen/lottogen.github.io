@@ -31,7 +31,7 @@
   <meta content="Click the GENERATE button to get a list of potential winning numbers for lotteries in Canada! This generator allows you
            to set conditions on the sequences generated, based on previous results, to slightly increase the chance of winning. Get your lucky numbers!!" name="description">
   <link href="https://lottogen.github.io/" rel="canonical">
-  <meta content="Lotto Number Generator Canada" property="og:title">
+  <meta content="Lucky Generator Canada" property="og:title">
   <meta content="Click the GENERATE button to get a list of potential winning numbers for lotteries in Canada! This generator allows you
            to set conditions on the sequences generated, based on previous results, to slightly increase the chance of winning. Get your lucky numbers!!" property="og:description">
   <meta content="https://lottogen.github.io/" property="og:url">
@@ -192,38 +192,53 @@
        </button>
        <div class="collapse" id="lottoMaxStats">
         <div class="statsDisplay">
-         <b>
-          Last 30 draws by date:
-         </b>
-         <table class="table-borderless">
-          <tbody id="lm_dateStats">
-          </tbody>
-         </table>
-         <!--<br>
-         <span style="font-weight: bold;">Conditions' top cases last 200 draws:</span>
-         <table class="table table-striped">
-          <tbody id="lottoMax200Stats">
-           <tr>
-             <th scope="row">Pattern</th>
-             <td>1-6-0: 42</td>
-             <td>1-5-1: 30</td>
-             <td>0-6-1: 25</td>
-             <td>2-5-0: 25</td>
-           </tr>
-           <tr>
-            <th scope="row">Even/Odd</th>
-            <td>4/3: 55</td>
-            <td>3/4: 63</td>
-            <td>5/2: 22</td>
-            <td>2/5: 25</td>
-           </tr>
-           <tr>
-            <th scope="row">Missed 10s</th>
-            <td>Yes: 55</td>
-            <td colspan="3">No: 63</td>
-           </tr>
-          </tbody>
-        </table>-->
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  <b style="color: #595959;">Top condition cases last 240 draws:</b>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                  <table class="table-borderless">
+                   <tbody>
+                     <tr class="statsRow evenRow">
+                       <td class="tdMD"><b><u>Pattern</u></b></td>
+                     </tr>
+                     <tr class="statsRow" id="lm_240Pattern">
+                     </tr>
+                     <tr class="statsRow evenRow">
+                       <td class="tdMD"><b><u>Even/Odd</u></b></td>
+                     </tr>
+                     <tr class="statsRow" id="lm_240EvenOdd">
+                     </tr>
+                     <tr class="statsRow evenRow">
+                       <td class="tdMD"><b><u>Miss 10s</u></b></td>
+                     </tr>
+                     <tr class="statsRow" id="lm_240Miss10s">
+                     </tr>
+                   </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                  <b style="color: #595959;">Last 30 draws by date:</b>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                  <table class="table-borderless">
+                   <tbody id="lm_dateStats">
+                   </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
        </div>
       </div>
@@ -336,13 +351,53 @@
        </button>
        <div class="collapse" id="lotto649Stats">
         <div class="statsDisplay">
-         <b>
-          Last 30 draws by date:
-         </b>
-         <table class="table-borderless">
-          <tbody id="l6_dateStats">
-          </tbody>
-         </table>
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  <b style="color: #595959;">Top condition cases last 240 draws:</b>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                  <table class="table-borderless">
+                   <tbody>
+                     <tr class="statsRow evenRow">
+                       <td class="tdMD"><b><u>Pattern</u></b></td>
+                     </tr>
+                     <tr class="statsRow" id="l6_240Pattern">
+                     </tr>
+                     <tr class="statsRow evenRow">
+                       <td class="tdMD"><b><u>Even/Odd</u></b></td>
+                     </tr>
+                     <tr class="statsRow" id="l6_240EvenOdd">
+                     </tr>
+                     <tr class="statsRow evenRow">
+                       <td class="tdMD"><b><u>Miss 10s</u></b></td>
+                     </tr>
+                     <tr class="statsRow" id="l6_240Miss10s">
+                     </tr>
+                   </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                  <b style="color: #595959;">Last 30 draws by date:</b>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                  <table class="table-borderless">
+                   <tbody id="l6_dateStats">
+                   </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
        </div>
       </div>
@@ -454,13 +509,53 @@
        </button>
        <div class="collapse" id="dailyGrandStats">
         <div class="statsDisplay">
-         <b>
-          Last 30 draws by date:
-         </b>
-         <table class="table-borderless">
-          <tbody id="dg_dateStats">
-          </tbody>
-         </table>
+          <div class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  <b style="color: #595959;">Top condition cases last 240 draws:</b>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                  <table class="table-borderless">
+                   <tbody>
+                     <tr class="statsRow evenRow">
+                       <td class="tdMD"><b><u>Pattern</u></b></td>
+                     </tr>
+                     <tr class="statsRow" id="dg_240Pattern">
+                     </tr>
+                     <tr class="statsRow evenRow">
+                       <td class="tdMD"><b><u>Even/Odd</u></b></td>
+                     </tr>
+                     <tr class="statsRow" id="dg_240EvenOdd">
+                     </tr>
+                     <tr class="statsRow evenRow">
+                       <td class="tdMD"><b><u>Miss 10s</u></b></td>
+                     </tr>
+                     <tr class="statsRow" id="dg_240Miss10s">
+                     </tr>
+                   </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                  <b style="color: #595959;">Last 30 draws by date:</b>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                  <table class="table-borderless">
+                   <tbody id="dg_dateStats">
+                   </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
        </div>
       </div>
