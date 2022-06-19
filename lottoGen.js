@@ -509,6 +509,8 @@ function calc_conditionFreq(patternCount, evenCount, miss10Count, tempStats, lot
     if (tempStats[i].miss10s) miss10Count['Yes']++;
     else miss10Count['No']++;
   }
+  let sortedPattern = Object.entries(patternCount).sort((a,b) => a[1] - b[1]);
+  console.log(sortedPattern);
 }
 
 function fillStatsDiv(tempStats, statsDiv) {
