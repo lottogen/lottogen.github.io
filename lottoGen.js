@@ -1,5 +1,5 @@
 //Lotto Max global variables
-let maxHistory, lm_genBtn, lm_genList, lm_under13, lm_zeros, lm_theRest, lm_genListDiv, lm_patternPick, lm_totalGenList, lm_missA10, lm_evenOdd, lm_cardPick, lm_statsDiv;
+let maxHistory, lm_genBtn, lm_genList, lm_under13, lm_zeros, lm_theRest, lm_genListDiv, lm_patternPick, lm_totalGenList, lm_missA10, lm_evenOdd, lm_cardPick;
 let lm_mainCount = {
   '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0, '8':0, '9':0, '10':0,
   '11':0, '12':0, '13':0, '14':0, '15':0, '16':0, '17':0, '18':0, '19':0, '20':0,
@@ -14,7 +14,7 @@ let lm_evenCount = {'4/3':0, '3/4':0, '5/2':0};
 let lm_miss10Count = {'Yes':0, 'No':0};
 
 //Lotto 6/49 global variables
-let history649, l6_genBtn, l6_genList, l6_under14, l6_zeros, l6_theRest, l6_genListDiv, l6_patternPick, l6_totalGenList, l6_missA10, l6_evenOdd, l6_cardPick, l6_statsDiv;
+let history649, l6_genBtn, l6_genList, l6_under14, l6_zeros, l6_theRest, l6_genListDiv, l6_patternPick, l6_totalGenList, l6_missA10, l6_evenOdd, l6_cardPick;
 let l6_mainCount = {
   '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0, '8':0, '9':0, '10':0,
   '11':0, '12':0, '13':0, '14':0, '15':0, '16':0, '17':0, '18':0, '19':0, '20':0,
@@ -29,7 +29,7 @@ let l6_evenCount = {'3/3':0, '4/2':0, '2/4':0};
 let l6_miss10Count = {'Yes':0, 'No':0};
 
 //Daily Grand global variables
-let dgHistory, dg_genBtn, dg_genList, dg_under7, dg_under15, dg_theRest, dg_genListDiv, dg_patternPick, dg_totalGenList, dg_missA10, dg_evenOdd, dg_cardPick, dg_statsDiv;
+let dgHistory, dg_genBtn, dg_genList, dg_under7, dg_under15, dg_theRest, dg_genListDiv, dg_patternPick, dg_totalGenList, dg_missA10, dg_evenOdd, dg_cardPick;
 let grandCount = {
   '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0
 };
@@ -109,7 +109,7 @@ function lm_preCalculations() {
   lm_patternPick = document.getElementById('lm_patternDrop');
   lm_missA10 = document.getElementById('lm_missA10Drop');
   lm_evenOdd = document.getElementById('lm_evenOddDrop');
-  lm_statsDiv = document.getElementById('lm_dateStats');
+  let lm_statsDiv = ['lm_240Pattern', 'lm_240EvenOdd', 'lm_240Miss10s', 'lm_dateStats'];
   //checkBtn = document.getElementById('checkButton');
 
   maxHistory.reverse();
@@ -120,7 +120,7 @@ function lm_preCalculations() {
 
   var lm_tempStats = [];
   calc_tempStats(maxHistory, lm_tempCount, lm_tempStats, 1, 13);
-  calc_conditionFreq(lm_patternCount, lm_evenCount, lm_miss10Count, lm_tempStats, 7);
+  let lm_conditionStats = calc_conditionFreq(lm_patternCount, lm_evenCount, lm_miss10Count, lm_tempStats, 7);
 
   console.log("numbers with overdue of 0: ");
   console.log(lm_zeros);
@@ -137,7 +137,7 @@ function lm_preCalculations() {
   console.log("miss 10s frequencies: ");
   console.log(lm_miss10Count);
 
-  fillStatsDiv(lm_tempStats, lm_statsDiv);
+  fillStatsDiv(lm_tempStats, lm_conditionStats, lm_miss10Count, lm_statsDiv);
 
   lm_genBtn.onclick = function() {
     genLMSequence();
@@ -206,7 +206,7 @@ function l6_preCalculations() {
   l6_patternPick = document.getElementById('l6_patternDrop');
   l6_missA10 = document.getElementById('l6_missA10Drop');
   l6_evenOdd = document.getElementById('l6_evenOddDrop');
-  l6_statsDiv = document.getElementById('l6_dateStats');
+  let l6_statsDiv = ['l6_240Pattern', 'l6_240EvenOdd', 'l6_240Miss10s', 'l6_dateStats'];
 
   history649.reverse();
   l6_zeros = [];
@@ -216,7 +216,7 @@ function l6_preCalculations() {
 
   var l6_tempStats = [];
   calc_tempStats(history649, l6_tempCount, l6_tempStats, 1, 14);
-  calc_conditionFreq(l6_patternCount, l6_evenCount, l6_miss10Count, l6_tempStats, 6);
+  let l6_conditionStats = calc_conditionFreq(l6_patternCount, l6_evenCount, l6_miss10Count, l6_tempStats, 6);
 
   console.log("numbers with overdue of 0: ");
   console.log(l6_zeros);
@@ -233,7 +233,7 @@ function l6_preCalculations() {
   console.log("miss 10s frequencies: ");
   console.log(l6_miss10Count);
 
-  fillStatsDiv(l6_tempStats, l6_statsDiv);
+  fillStatsDiv(l6_tempStats, l6_conditionStats, l6_miss10Count, l6_statsDiv);
 
   l6_genBtn.onclick = function() {
     genL6Sequence();
@@ -302,7 +302,7 @@ function dg_preCalculations() {
   dg_missA10 = document.getElementById('dg_missA10Drop');
   dg_evenOdd = document.getElementById('dg_evenOddDrop');
   genGrDiv = document.getElementById('genGrand');
-  dg_statsDiv = document.getElementById('dg_dateStats');
+  let dg_statsDiv = ['dg_240Pattern', 'dg_240EvenOdd', 'dg_240Miss10s', 'dg_dateStats'];
 
   dgHistory.reverse();
   dg_under7 = [];
@@ -312,7 +312,7 @@ function dg_preCalculations() {
 
   var dg_tempStats = [];
   calc_tempStats(dgHistory, dg_tempCount, dg_tempStats, 7, 15);
-  calc_conditionFreq(dg_patternCount, dg_evenCount, dg_miss10Count, dg_tempStats, 5);
+  let dg_conditionStats = calc_conditionFreq(dg_patternCount, dg_evenCount, dg_miss10Count, dg_tempStats, 5);
 
   console.log("numbers with overdue of under 7: ");
   console.log(dg_under7);
@@ -329,7 +329,7 @@ function dg_preCalculations() {
   console.log("miss 10s frequencies: ");
   console.log(dg_miss10Count);
 
-  fillStatsDiv(dg_tempStats, dg_statsDiv);
+  fillStatsDiv(dg_tempStats, dg_conditionStats, dg_miss10Count, dg_statsDiv);
 
   dg_genBtn.onclick = function() {
     genDGSequence();
@@ -510,10 +510,21 @@ function calc_conditionFreq(patternCount, evenCount, miss10Count, tempStats, lot
     else miss10Count['No']++;
   }
   let sortedPattern = Object.entries(patternCount).sort((a,b) => b[1] - a[1]);
-  console.log(sortedPattern);
+  let sortedEven = Object.entries(evenCount).sort((a,b) => b[1] - a[1]);
+  return [sortedPattern, sortedEven];
 }
 
-function fillStatsDiv(tempStats, statsDiv) {
+function fillStatsDiv(tempStats, conditionStats, miss10Stats, statsDiv) {
+  var patternString = "";
+  var evenString = "";
+  for (var i = 0; i < 5; i++) {
+    patternString += "<td class=\"tdMD\"><b>" + conditionStats[0][i][0] + ": </b>" + conditionStats[0][i][1] + "</td>";
+    evenString += "<td class=\"tdMD\"><b>" + conditionStats[1][i][0] + ": </b>" + conditionStats[1][i][1] + "</td>";
+  }
+  document.getElementById(statsDiv[0]).innerHTML = patternString;
+  document.getElementById(statsDiv[1]).innerHTML = evenString;
+  document.getElementById(statsDiv[2]).innerHTML = "<td class=\"tdMD\"><b>Yes: </b>" + miss10Stats['Yes'] + "</td><td class=\"tdMD\"><b>No: </b>" + miss10Stats['No'] + "</td>";
+
   var divString = "";
   var evenRow = "";
   for (i = 0; i < 30; i++) {
@@ -529,7 +540,7 @@ function fillStatsDiv(tempStats, statsDiv) {
     if (evenRow == "") evenRow = " evenRow";
     else evenRow = "";
   }
-  statsDiv.innerHTML = divString;
+  document.getElementById(statsDiv[3]).innerHTML = divString;
 }
 
 function calc_newSeq(zeros, mid, aboveMid, newSeq, patternSeq, seqLength, seqRange) {
