@@ -2,6 +2,11 @@
     "id": "lottoMax",
     "history": [
         {
+            "date": "Tuesday, November 22, 2022",
+            "main": "2 10 12 18 19 21 34",
+            "bonus": "33"
+        },
+        {
             "date": "Friday, November 18, 2022",
             "main": "3 5 11 17 26 42 49",
             "bonus": "27"
