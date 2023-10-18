@@ -2,6 +2,11 @@
     "id": "lottoMax",
     "history": [
         {
+            "date": "Tuesday, October 17, 2023",
+            "main": "2 7 15 16 18 19 25",
+            "bonus": "35"
+        },
+        {
             "date": "Friday, October 13, 2023",
             "main": "8 17 20 23 28 31 33",
             "bonus": "45"
