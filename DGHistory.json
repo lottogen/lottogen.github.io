@@ -2,6 +2,11 @@
     "id": "dailyGrand",
     "history": [
         {
+            "date": "Monday, December 04, 2023",
+            "main": "1 8 11 26 37",
+            "grand": "2"
+        },
+        {
             "date": "Thursday, November 30, 2023",
             "main": "31 32 34 39 49",
             "grand": "6"
