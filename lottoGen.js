@@ -122,19 +122,19 @@ function lm_preCalculations() {
   calc_tempStats(maxHistory, lm_tempCount, lm_tempStats, 1, 13);
   let lm_conditionStats = calc_conditionFreq(lm_patternCount, lm_evenCount, lm_miss10Count, lm_tempStats, 7);
 
-  console.log("numbers with overdue of 0: ");
+  console.log("LMax numbers with overdue of 0: ");
   console.log(lm_zeros);
-  console.log(("numbers with overdue of under 13: "));
+  console.log(("LMax numbers with overdue of under 13: "));
   console.log(lm_under13);
-  console.log("numbers with overdue of 13 and above: ");
+  console.log("LMax numbers with overdue of 13 and above: ");
   console.log(lm_theRest);
-  console.log("main number overdue patterns by date: ");
+  console.log("LMax main number overdue patterns by date: ");
   console.log(lm_tempStats.reverse());
-  console.log("pattern frequencies: ");
+  console.log("LMax pattern frequencies: ");
   console.log(lm_patternCount);
-  console.log("even/odd frequencies: ");
+  console.log("LMax even/odd frequencies: ");
   console.log(lm_evenCount);
-  console.log("miss 10s frequencies: ");
+  console.log("LMax miss 10s frequencies: ");
   console.log(lm_miss10Count);
 
   fillStatsDiv(lm_tempStats, lm_conditionStats, lm_miss10Count, lm_statsDiv);
@@ -172,19 +172,22 @@ function genLMSequence() {
     var condition10s = false;
     var missing10s = calc_missing10s(newSeq);
 
+    var goodRep2 = calc_goodRep2(lm_totalGenList, newSeq, 4);
+
     //check condition10s according to user selection
     if ((lm_missA10.value == "Yes") && missing10s) condition10s = true;
     else if ((lm_missA10.value == "No") && !missing10s) condition10s = true;
     else if (lm_missA10.value == "Any") condition10s = true;
 
     //add newSeq to genList
-    if (goodRatio && noCons && goodRep && condition10s && !lm_genList.includes(newSeq) && !lm_totalGenList.includes(newSeq)) {
+    if (goodRatio && noCons && goodRep && goodRep2 && condition10s && !lm_genList.includes(newSeq) && !lm_totalGenList.includes(newSeq)) {
       lm_genList.push(newSeq);
       lm_totalGenList.push(newSeq);
     }
   }
-  console.log("number sequences generated: ");
+  console.log("LMax number sequences generated: ");
   console.log(lm_genList);
+  console.log("Total number of LMax sequences generated: " + lm_totalGenList.length);
 
   //display generated list
   lm_genListDiv.innerHTML = "";
@@ -218,19 +221,19 @@ function l6_preCalculations() {
   calc_tempStats(history649, l6_tempCount, l6_tempStats, 1, 14);
   let l6_conditionStats = calc_conditionFreq(l6_patternCount, l6_evenCount, l6_miss10Count, l6_tempStats, 6);
 
-  console.log("numbers with overdue of 0: ");
+  console.log("6/49 numbers with overdue of 0: ");
   console.log(l6_zeros);
-  console.log(("numbers with overdue of under 14: "));
+  console.log(("6/49 numbers with overdue of under 14: "));
   console.log(l6_under14);
-  console.log("numbers with overdue of 14 and above: ");
+  console.log("6/49 numbers with overdue of 14 and above: ");
   console.log(l6_theRest);
-  console.log("main number overdue patterns by date: ");
+  console.log("6/49 main number overdue patterns by date: ");
   console.log(l6_tempStats.reverse());
-  console.log("pattern frequencies: ");
+  console.log("6/49 pattern frequencies: ");
   console.log(l6_patternCount);
-  console.log("even/odd frequencies: ");
+  console.log("6/49 even/odd frequencies: ");
   console.log(l6_evenCount);
-  console.log("miss 10s frequencies: ");
+  console.log("6/49 miss 10s frequencies: ");
   console.log(l6_miss10Count);
 
   fillStatsDiv(l6_tempStats, l6_conditionStats, l6_miss10Count, l6_statsDiv);
@@ -267,19 +270,22 @@ function genL6Sequence() {
     var condition10s = false;
     var missing10s = calc_missing10s(newSeq);
 
+    var goodRep2 = calc_goodRep2(l6_totalGenList, newSeq, 4);
+
     //check condition10s according to user selection
     if ((l6_missA10.value == "Yes") && missing10s) condition10s = true;
     else if ((l6_missA10.value == "No") && !missing10s) condition10s = true;
     else if (l6_missA10.value == "Any") condition10s = true;
 
     //add newSeq to genList
-    if (goodRatio && noCons && goodRep && condition10s && !l6_genList.includes(newSeq) && !l6_totalGenList.includes(newSeq)) {
+    if (goodRatio && noCons && goodRep && goodRep2 && condition10s && !l6_genList.includes(newSeq) && !l6_totalGenList.includes(newSeq)) {
       l6_genList.push(newSeq);
       l6_totalGenList.push(newSeq);
     }
   }
-  console.log("number sequences generated: ");
+  console.log("6/49 sequences generated: ");
   console.log(l6_genList);
+  console.log("Total number of 6/49 sequences generated: " + l6_totalGenList.length);
 
   //display generated list
   l6_genListDiv.innerHTML = "";
@@ -314,19 +320,19 @@ function dg_preCalculations() {
   calc_tempStats(dgHistory, dg_tempCount, dg_tempStats, 7, 15);
   let dg_conditionStats = calc_conditionFreq(dg_patternCount, dg_evenCount, dg_miss10Count, dg_tempStats, 5);
 
-  console.log("numbers with overdue of under 7: ");
+  console.log("DG numbers with overdue of under 7: ");
   console.log(dg_under7);
-  console.log(("numbers with overdue of under 15: "));
+  console.log(("DG numbers with overdue of under 15: "));
   console.log(dg_under15);
-  console.log("numbers with overdue of 15 and above: ");
+  console.log("DG numbers with overdue of 15 and above: ");
   console.log(dg_theRest);
-  console.log("main number overdue statuses by date: ");
+  console.log("DG main number overdue statuses by date: ");
   console.log(dg_tempStats.reverse());
-  console.log("pattern frequencies: ");
+  console.log("DG pattern frequencies: ");
   console.log(dg_patternCount);
-  console.log("even/odd frequencies: ");
+  console.log("DG even/odd frequencies: ");
   console.log(dg_evenCount);
-  console.log("miss 10s frequencies: ");
+  console.log("DG miss 10s frequencies: ");
   console.log(dg_miss10Count);
 
   fillStatsDiv(dg_tempStats, dg_conditionStats, dg_miss10Count, dg_statsDiv);
@@ -367,7 +373,7 @@ function genDGSequence() {
     else if ((dg_missA10.value == "No") && !missing10s) condition10s = true;
     else if (dg_missA10.value == "Any") condition10s = true;
 
-    var goodRep2 = calc_goodRep2(dg_totalGenList, newSeq, 2);
+    var goodRep2 = calc_goodRep2(dg_totalGenList, newSeq, 3);
 
     //add newSeq to genList
     if (goodRatio && noCons && goodRep && goodRep2 && condition10s && !dg_genList.includes(newSeq) && !dg_totalGenList.includes(newSeq)) {
@@ -375,8 +381,9 @@ function genDGSequence() {
       dg_totalGenList.push(newSeq);
     }
   }
-  console.log("number sequences generated: ");
+  console.log("DG sequences generated: ");
   console.log(dg_genList);
+  console.log("Total number of DG sequences generated: " + dg_totalGenList.length);
 
   //display generated list
   dg_genListDiv.innerHTML = "";
