@@ -367,8 +367,10 @@ function genDGSequence() {
     else if ((dg_missA10.value == "No") && !missing10s) condition10s = true;
     else if (dg_missA10.value == "Any") condition10s = true;
 
+    var goodRep2 = calc_goodRep2(dg_totalGenList, newSeq, 2);
+
     //add newSeq to genList
-    if (goodRatio && noCons && goodRep && condition10s && !dg_genList.includes(newSeq) && !dg_totalGenList.includes(newSeq)) {
+    if (goodRatio && noCons && goodRep && goodRep2 && condition10s && !dg_genList.includes(newSeq) && !dg_totalGenList.includes(newSeq)) {
       dg_genList.push(newSeq);
       dg_totalGenList.push(newSeq);
     }
@@ -602,6 +604,19 @@ function calc_goodRep(history, newSeq, repLimit) {
       if (repLimitCount > 4) {
         return false;
       }
+    }
+  }
+  return true;
+}
+
+function calc_goodRep2(totalGenList, newSeq, repLimit) {
+  for (var i = 0; i < totalGenList.length; i++) {
+    var repCount = 0;
+    for (var j=0; j < totalGenList[i].length; j++) {
+      if (newSeq.includes(totalGenList[i][j])) repCount++;
+    }
+    if (repCount > repLimit) {
+      return false;
     }
   }
   return true;
