@@ -460,7 +460,7 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
   var tempZeros = [];
   var tempMid = [];
   var tempRest = [];
-  for (var k = (history.length - 280); k < history.length; k++) {
+  for (var k = (history.length - 320); k < history.length; k++) {
     var seq = history[k].main.split("-");
     if (seq.length === 1) seq = history[k].main.split(" ");
     var bonus = history[k].bonus;
@@ -526,8 +526,10 @@ function calc_conditionFreq(patternCount, evenCount, miss10Count, tempStats, lot
 function fillStatsDiv(tempStats, conditionStats, miss10Stats, statsDiv) {
   var patternString = "";
   var evenString = "";
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < conditionStats[0].length; i++) {
     patternString += "<td class=\"tdMD\"><b>" + conditionStats[0][i][0] + ": </b>" + conditionStats[0][i][1] + "</td>";
+  }
+  for (i = 0; i < conditionStats[1].length; i++) {
     evenString += "<td class=\"tdMD\"><b>" + conditionStats[1][i][0] + ": </b>" + conditionStats[1][i][1] + "</td>";
   }
   document.getElementById(statsDiv[0]).innerHTML = patternString;
