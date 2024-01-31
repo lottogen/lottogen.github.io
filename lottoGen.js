@@ -1,5 +1,5 @@
 //Lotto Max global variables
-let maxHistory, lm_genBtn, lm_genList, lm_under13, lm_zeros, lm_theRest, lm_genListDiv, lm_patternPick, lm_totalGenList, lm_missA10, lm_evenOdd, lm_cardPick;
+let maxHistory, lm_genBtn, lm_genList, lm_under13, lm_zeros, lm_theRest, lm_genListDiv, lm_patternPick, lm_chosenList, lm_totalGenList, lm_missA10, lm_evenOdd, lm_cardPick;
 let lm_mainCount = {
   '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0, '8':0, '9':0, '10':0,
   '11':0, '12':0, '13':0, '14':0, '15':0, '16':0, '17':0, '18':0, '19':0, '20':0,
@@ -14,7 +14,7 @@ let lm_evenCount = {'4/3':0, '3/4':0, '5/2':0};
 let lm_miss10Count = {'Yes':0, 'No':0};
 
 //Lotto 6/49 global variables
-let history649, l6_genBtn, l6_genList, l6_under14, l6_zeros, l6_theRest, l6_genListDiv, l6_patternPick, l6_totalGenList, l6_missA10, l6_evenOdd, l6_cardPick;
+let history649, l6_genBtn, l6_genList, l6_under14, l6_zeros, l6_theRest, l6_genListDiv, l6_patternPick, l6_chosenList, l6_totalGenList, l6_missA10, l6_evenOdd, l6_cardPick;
 let l6_mainCount = {
   '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0, '8':0, '9':0, '10':0,
   '11':0, '12':0, '13':0, '14':0, '15':0, '16':0, '17':0, '18':0, '19':0, '20':0,
@@ -29,7 +29,7 @@ let l6_evenCount = {'3/3':0, '4/2':0, '2/4':0};
 let l6_miss10Count = {'Yes':0, 'No':0};
 
 //Daily Grand global variables
-let dgHistory, dg_genBtn, dg_genList, dg_under7, dg_under15, dg_theRest, dg_genListDiv, dg_patternPick, dg_totalGenList, dg_missA10, dg_evenOdd, dg_cardPick;
+let dgHistory, dg_genBtn, dg_genList, dg_under7, dg_under15, dg_theRest, dg_genListDiv, dg_patternPick, dg_chosenList, dg_grandNumber, dg_totalGenList, dg_missA10, dg_evenOdd, dg_cardPick;
 let grandCount = {
   '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0
 };
@@ -63,6 +63,7 @@ window.onload = function() {
 
   lotteryChooser("lottoMaxCard");
 
+  //ready();
   d3.queue()
       .defer(d3.json, 'LMHistory.json')
       .defer(d3.json, '649History.json')
@@ -104,12 +105,14 @@ function ready(error, lmData, data649, dgData) {
 
 function lm_preCalculations() {
   lm_totalGenList = [];
+  lm_chosenList = [];
   lm_genBtn = document.getElementById('lm_genButton');
   lm_genListDiv = document.getElementById('lm_genList');
   lm_patternPick = document.getElementById('lm_patternDrop');
   lm_missA10 = document.getElementById('lm_missA10Drop');
   lm_evenOdd = document.getElementById('lm_evenOddDrop');
   let lm_statsDiv = ['lm_240Pattern', 'lm_240EvenOdd', 'lm_240Miss10s', 'lm_dateStats'];
+  let lm_seqChooserDiv = ['lm_zerosPool', 'lm_under13Pool', 'lm_theRestPool'];
   //checkBtn = document.getElementById('checkButton');
 
   maxHistory.reverse();
@@ -137,6 +140,7 @@ function lm_preCalculations() {
   console.log("LMax miss 10s frequencies: ");
   console.log(lm_miss10Count);
 
+  fillSeqChooser(lm_zeros, lm_under13, lm_theRest, lm_seqChooserDiv, "lm");
   fillStatsDiv(lm_tempStats, lm_conditionStats, lm_miss10Count, lm_statsDiv);
 
   lm_genBtn.onclick = function() {
@@ -204,12 +208,14 @@ function genLMSequence() {
 
 function l6_preCalculations() {
   l6_totalGenList = [];
+  l6_chosenList = [];
   l6_genBtn = document.getElementById('l6_genButton');
   l6_genListDiv = document.getElementById('l6_genList');
   l6_patternPick = document.getElementById('l6_patternDrop');
   l6_missA10 = document.getElementById('l6_missA10Drop');
   l6_evenOdd = document.getElementById('l6_evenOddDrop');
   let l6_statsDiv = ['l6_240Pattern', 'l6_240EvenOdd', 'l6_240Miss10s', 'l6_dateStats'];
+  let l6_seqChooserDiv = ['l6_zerosPool', 'l6_under14Pool', 'l6_theRestPool'];
 
   history649.reverse();
   l6_zeros = [];
@@ -236,6 +242,7 @@ function l6_preCalculations() {
   console.log("6/49 miss 10s frequencies: ");
   console.log(l6_miss10Count);
 
+  fillSeqChooser(l6_zeros, l6_under14, l6_theRest, l6_seqChooserDiv, "l6");
   fillStatsDiv(l6_tempStats, l6_conditionStats, l6_miss10Count, l6_statsDiv);
 
   l6_genBtn.onclick = function() {
@@ -302,6 +309,8 @@ function genL6Sequence() {
 
 function dg_preCalculations() {
   dg_totalGenList = [];
+  dg_chosenList = [];
+  dg_grandNumber = "";
   dg_genBtn = document.getElementById('dg_genButton');
   dg_genListDiv = document.getElementById('dg_genList');
   dg_patternPick = document.getElementById('dg_patternDrop');
@@ -309,6 +318,7 @@ function dg_preCalculations() {
   dg_evenOdd = document.getElementById('dg_evenOddDrop');
   genGrDiv = document.getElementById('genGrand');
   let dg_statsDiv = ['dg_240Pattern', 'dg_240EvenOdd', 'dg_240Miss10s', 'dg_dateStats'];
+  let dg_seqChooserDiv = ['dg_under7Pool', 'dg_under15Pool', 'dg_theRestPool'];
 
   dgHistory.reverse();
   dg_under7 = [];
@@ -335,7 +345,24 @@ function dg_preCalculations() {
   console.log("DG miss 10s frequencies: ");
   console.log(dg_miss10Count);
 
+  fillSeqChooser(dg_under7, dg_under15, dg_theRest, dg_seqChooserDiv, "dg");
   fillStatsDiv(dg_tempStats, dg_conditionStats, dg_miss10Count, dg_statsDiv);
+
+  //display grand numbers with 2 highest overdue status
+  var grandNums = [];
+  for (var el in grandCount) {
+    grandNums.push(grandCount[el]);
+  }
+  grandNums.sort(function(a, b){return a-b});
+  var grand1 = grandNums[6];
+  var grand2 = grandNums[5];
+  for (var el in grandCount) {
+    if (grand1 === grandCount[el]) grand1 = el;
+    else if (grand2 === grandCount[el]) grand2 = el;
+  }
+  genGrDiv.innerHTML = "GN: " + grand1 + " or " + grand2;
+  dg_grandNumber = grand1;
+  document.getElementById("btn-grand-dg-" + grand1).checked = true;
 
   dg_genBtn.onclick = function() {
     genDGSequence();
@@ -394,20 +421,6 @@ function genDGSequence() {
     }
     dg_genListDiv.innerHTML += '<br>';
   }
-
-  //display grand numbers with 2 highest overdue status
-  var grandNums = [];
-  for (var el in grandCount) {
-    grandNums.push(grandCount[el]);
-  }
-  grandNums.sort(function(a, b){return a-b});
-  var grand1 = grandNums[6];
-  var grand2 = grandNums[5];
-  for (var el in grandCount) {
-    if (grand1 === grandCount[el]) grand1 = el;
-    else if (grand2 === grandCount[el]) grand2 = el;
-  }
-  genGrDiv.innerHTML = "GN: " + grand1 + " or " + grand2;
 }
 
 
@@ -470,7 +483,7 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
       bType = "G: ";
     }
 
-    if (k > (history.length - 241)) {
+    if (k > (history.length - 281)) {
       tempZeros = [];
       tempMid = [];
       tempRest = [];
@@ -552,6 +565,217 @@ function fillStatsDiv(tempStats, conditionStats, miss10Stats, statsDiv) {
     else evenRow = "";
   }
   document.getElementById(statsDiv[3]).innerHTML = divString;
+}
+
+function fillSeqChooser(zeroPool, midPool, restPool, poolDiv, lotto) {
+  var zeroString = "";
+  var midString = "";
+  var restString = "";
+  var grandString = "";
+  for (var i = 0; i < zeroPool.length; i++) {
+    zeroString += "<td class=\"tdSM\"><input type=\"checkbox\" class=\"btn-check\" id=\"btn-check-" + lotto + "-" + zeroPool[i] + "\" autocomplete=\"off\" onclick=\"addChosenNumber('btn-check-" + lotto + "-" + zeroPool[i] + "')\">";
+    zeroString += "<label class=\"btn btn-outline-dark chooserNum\" for=\"btn-check-" + lotto + "-" + zeroPool[i] + "\">" + zeroPool[i] + "</label></td>";
+  }
+  for (i = 0; i < midPool.length; i++) {
+    midString += "<td class=\"tdSM\"><input type=\"checkbox\" class=\"btn-check\" id=\"btn-check-" + lotto + "-" + midPool[i] + "\" autocomplete=\"off\" onclick=\"addChosenNumber('btn-check-" + lotto + "-" + midPool[i] + "')\">";
+    midString += "<label class=\"btn btn-outline-dark chooserNum\" for=\"btn-check-" + lotto + "-" + midPool[i] + "\">" + midPool[i] + "</label></td>";
+  }
+  for (i = 0; i < restPool.length; i++) {
+    restString += "<td class=\"tdSM\"><input type=\"checkbox\" class=\"btn-check\" id=\"btn-check-" + lotto + "-" + restPool[i] + "\" autocomplete=\"off\" onclick=\"addChosenNumber('btn-check-" + lotto + "-" + restPool[i] + "')\">";
+    restString += "<label class=\"btn btn-outline-dark chooserNum\" for=\"btn-check-" + lotto + "-" + restPool[i] + "\">" + restPool[i] + "</label></td>";
+  }
+  if (lotto == "dg") {
+    for (i = 1; i < 8; i++) {
+      grandString += "<td class=\"tdSM\"><input type=\"checkbox\" class=\"btn-check\" id=\"btn-grand-" + lotto + "-" + i + "\" autocomplete=\"off\" onclick=\"addChosenNumber('btn-grand-" + lotto + "-" + i + "')\">";
+      grandString += "<label class=\"btn btn-outline-dark chooserNum\" for=\"btn-grand-" + lotto + "-" + i + "\">" + i + "</label></td>";
+    }
+    document.getElementById("dg_grandPool").innerHTML = grandString;
+  }
+  document.getElementById(poolDiv[0]).innerHTML = zeroString;
+  document.getElementById(poolDiv[1]).innerHTML = midString;
+  document.getElementById(poolDiv[2]).innerHTML = restString;
+}
+
+function addChosenNumber(numberID) {
+  let numLotto = numberID.split('-')[2];
+  let chosenNum = numberID.split('-')[3];
+  let grandNum = numberID.split('-')[1];
+  if (numLotto == "lm") {
+    if (!lm_chosenList.includes(chosenNum) && lm_chosenList.length < 7) lm_chosenList.push(chosenNum);
+    else if (!lm_chosenList.includes(chosenNum)) {
+      document.getElementById(numberID).checked = false;
+    }
+    else {
+      lm_chosenList.splice(lm_chosenList.indexOf(chosenNum), 1);
+      document.getElementById(numberID).checked = false;
+    }
+    //console.log("Lotto Max chosen list: " + lm_chosenList);
+  }
+  else if (numLotto == "l6") {
+    if (!l6_chosenList.includes(chosenNum) && l6_chosenList.length < 6) l6_chosenList.push(chosenNum);
+    else if (!l6_chosenList.includes(chosenNum)) {
+      document.getElementById(numberID).checked = false;
+    }
+    else {
+      l6_chosenList.splice(l6_chosenList.indexOf(chosenNum), 1);
+      document.getElementById(numberID).checked = false;
+    }
+    //console.log("Lotto 649 chosen list: " + l6_chosenList);
+  }
+  else {
+    if (grandNum == "grand") {
+      document.getElementById("btn-grand-dg-" + dg_grandNumber).checked = false;
+      dg_grandNumber = chosenNum;
+      document.getElementById(numberID).checked = true;
+    }
+    else {
+      if (!dg_chosenList.includes(chosenNum) && dg_chosenList.length < 5) dg_chosenList.push(chosenNum);
+      else if (!dg_chosenList.includes(chosenNum)) {
+        document.getElementById(numberID).checked = false;
+      }
+      else {
+        dg_chosenList.splice(dg_chosenList.indexOf(chosenNum), 1);
+        document.getElementById(numberID).checked = false;
+      }
+    }
+    //console.log("Daily Grand chosen list: " + dg_chosenList);
+  }
+}
+
+function genChosenSeq(lotto) {
+  var patternA = 0;
+  var patternB = 0;
+  var patternC = 0;
+  var even = 0;
+  var numString = "<b>Numbers: </b>";
+  var evenStr = "<b>Even/Odd: </b>";
+  var editedStr = false;
+  var miss10s = "Yes";
+  if (lotto == "lm" && lm_chosenList.length == 7) {
+    lm_chosenList.sort(function(a, b){return a-b});
+    for (var i = 0; i < lm_chosenList.length; i++) {
+      numString += lm_chosenList[i] + " ";
+      if (lm_zeros.includes(lm_chosenList[i])) patternA++;
+      else if (lm_under13.includes(lm_chosenList[i])) patternB++;
+      else patternC++;
+      if (lm_chosenList[i] % 2 === 0) even++;
+    }
+    evenStr += even + "/" + (lm_chosenList.length - even);
+    if (!calc_missing10s(lm_chosenList)) miss10s = "No";
+    editedStr = true;
+    let prevMatchLM = calc_prevMatch("lm", maxHistory, lm_chosenList);
+    prevMatchDisplay("lm", prevMatchLM);
+  }
+  else if (lotto == "l6" && l6_chosenList.length == 6) {
+    l6_chosenList.sort(function(a, b){return a-b});
+    for (var i = 0; i < l6_chosenList.length; i++) {
+      numString += l6_chosenList[i] + " ";
+      if (l6_zeros.includes(l6_chosenList[i])) patternA++;
+      else if (l6_under14.includes(l6_chosenList[i])) patternB++;
+      else patternC++;
+      if (l6_chosenList[i] % 2 === 0) even++;
+    }
+    evenStr += even + "/" + (l6_chosenList.length - even);
+    if (!calc_missing10s(l6_chosenList)) miss10s = "No";
+    editedStr = true;
+    let prevMatchL6 = calc_prevMatch("l6", history649, l6_chosenList);
+    prevMatchDisplay("l6", prevMatchL6);
+  }
+  else if (lotto == "dg" && dg_chosenList.length == 5){
+    dg_chosenList.sort(function(a, b){return a-b});
+    for (var i = 0; i < dg_chosenList.length; i++) {
+      numString += dg_chosenList[i] + " ";
+      if (dg_under7.includes(dg_chosenList[i])) patternA++;
+      else if (dg_under15.includes(dg_chosenList[i])) patternB++;
+      else patternC++;
+      if (dg_chosenList[i] % 2 === 0) even++;
+    }
+    numString += "<span style='margin-left:10px;'><b>G: </b>" + dg_grandNumber + "</span>";
+    evenStr += even + "/" + (dg_chosenList.length - even);
+    if (!calc_missing10s(dg_chosenList)) miss10s = "No";
+    editedStr = true;
+    let prevMatchDG = calc_prevMatch("dg", dgHistory, dg_chosenList);
+    prevMatchDisplay("dg", prevMatchDG);
+  }
+  if (editedStr) {
+    document.getElementById(lotto + "_resultNumbers").innerHTML = numString;
+    document.getElementById(lotto + "_resultPattern").innerHTML = "<b>Pattern: </b>" + patternA + "-" + patternB + "-" + patternC;
+    document.getElementById(lotto + "_resultEven").innerHTML = evenStr;
+    document.getElementById(lotto + "_resultMiss10").innerHTML = "<b>Miss 10s: </b>" + miss10s;
+  }
+}
+
+function calc_prevMatch(lotto, history, seqChosen) {
+  var match4 = [];
+  var match5 = [];
+  var match6 = [];
+  var match7 = [];
+  for (var i = 0; i < history.length; i++) {
+    var oldSeq = history[i].main.split("-");
+    if (oldSeq.length === 1) oldSeq = history[i].main.split(" ");
+    var repCount = 0;
+    let bonus;
+    var match = "";
+    var bType = "B:";
+    for (var j = 0; j < oldSeq.length; j++) {
+      if (seqChosen.includes(oldSeq[j])) repCount++;
+    }
+    var match = repCount + "/" + seqChosen.length;
+    if (lotto == "lm" || lotto == "l6") {
+      if (seqChosen.includes(history[i].bonus)) match += " + B";
+      bonus = history[i].bonus;
+    }
+    else {
+      if (dg_grandNumber == history[i].grand) match += " + G";
+      bonus = history[i].grand;
+      bType = "G:";
+    }
+    let newMatch = {date: history[i].date, main: history[i].main, bonus: bonus, bType: bType, match: match};
+    if (repCount == 4) {
+      match4.push(newMatch);
+    }
+    else if (repCount == 5) {
+      match5.push(newMatch);
+    }
+    else if (repCount == 6) {
+      match6.push(newMatch);
+    }
+    else if (repCount == 7) {
+      match7.push(newMatch);
+    }
+  }
+  return [{match: "4", list: match4}, {match: "5", list: match5}, {match: "6", list: match6}, {match: "7", list: match7}];
+}
+
+function prevMatchDisplay(lotto, matches) {
+  var prevMStr = "";
+  for (var i = 0; i < matches.length; i++) {
+    if (matches[i].list.length == 0) continue;
+    var headStr = lotto + "-headingM" + matches[i].match;
+    var idStr = lotto + "match" + matches[i].match;
+    prevMStr += "<div class='accordion'>";
+    prevMStr += "<div class='accordion-item'>";
+    prevMStr += "<h2 class='accordion-header' id='" + headStr +"'>";
+    prevMStr += "<button aria-controls='" + idStr + "' aria-expanded='true' class='accordion-button collapsed' data-bs-target='#" + idStr + "' data-bs-toggle='collapse'>";
+    prevMStr += "<b style='color: #595959;'>Matched " + matches[i].match + ": " + matches[i].list.length + " times</b></button></h2>";
+    prevMStr += "<div aria-labelledby='" + headStr + "' class='accordion-collapse collapse' id='" + idStr + "'>";
+    prevMStr += "<div class='accordion-body'>";
+    prevMStr += "<table class='table-borderless'>";
+    prevMStr += "<tbody>";
+    var evenRow = "";
+    for (j = 0; j < matches[i].list.length; j++) {
+      prevMStr += "<tr class=\"statsRow" + evenRow + "\">";
+      prevMStr += "<td class=\"tdMD\"><b>Match: </b>" + matches[i].list[j].match + "</td>";
+      prevMStr += "<td class=\"tdLG\"><b>Date: </b>" + matches[i].list[j].date + "</td>";
+      prevMStr += "<td class=\"tdLG\"><b>Numbers: </b>" + matches[i].list[j].main + "</td>";
+      prevMStr += "<td class=\"tdSM\"><b>" + matches[i].list[j].bType + " </b>" + matches[i].list[j].bonus + "</td>";
+      prevMStr += "</tr>";
+      if (evenRow == "") evenRow = " evenRow";
+      else evenRow = "";
+    }
+    prevMStr += "</tbody></table></div></div></div></div>";
+  }
+  document.getElementById(lotto + "_prevMatches").innerHTML = prevMStr;
 }
 
 function calc_newSeq(zeros, mid, aboveMid, newSeq, patternSeq, seqLength, seqRange) {

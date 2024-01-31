@@ -49,7 +49,8 @@
        Click the GENERATE button to get a list of potential winning numbers! This generator allows you
                 to set conditions on the sequences generated, based on previous results, to slightly increase the chance of winning.
                 Some condition options are more common than others, see lotto statistics.  Choosing 'Any' for all
-                conditions will generate almost completely random sequences (except for the hidden conditions will apply).
+                conditions will generate almost completely random sequences (except for the hidden conditions will apply). You could
+                also choose your own numbers from lists grouped on how long ago they appeared on a draw.
                 Get your lucky numbers!!
       </span>
       <br>
@@ -119,10 +120,6 @@
          </option>
         </select>
        </div>
-      </div>
-     </div>
-     <div class="row justify-content-center">
-      <div class="col-4 dropdown_custom">
        <div class="input-group mb-3">
         <label class="input-group-text" for="lm_missA10Drop">
          Miss 10s
@@ -139,10 +136,6 @@
          </option>
         </select>
        </div>
-      </div>
-     </div>
-     <div class="row justify-content-center">
-      <div class="col-4 dropdown_custom">
        <div class="input-group mb-3">
         <label class="input-group-text" for="lm_evenOddDrop">
          Even/Odd
@@ -166,24 +159,97 @@
         </select>
        </div>
       </div>
-     </div>
-     <div class="genBDiv">
-      <button class="genButton" id="lm_genButton" style="background-color: #0977ad; color: #ffffff; border-color: #056a9c;">
-       GENERATE
-      </button>
+      <div class="col-3">
+        <div class="genBDiv">
+         <button class="genButton" id="lm_genButton" style="background-color: #0977ad; color: #ffffff; border-color: #056a9c;">
+          GENERATE
+         </button>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="genDisplay">
+         <span style="font-weight: bold;">
+          Generated Sequences:
+         </span>
+         <div id="lm_genList">
+          <br>
+         </div>
+        </div>
+      </div>
      </div>
      <!--<div class="genBDiv">
               <button id="checkButton">Check</button>
             </div>-->
      <div class="row justify-content-center">
-      <div class="genDisplay">
-       <span style="font-weight: bold;">
-        Generated Sequences:
-       </span>
-       <div id="lm_genList">
-        <br>
+     </div>
+     <div class="row">
+       <div class="col">
+         <div class="statsDisplay">
+           <h4>Choose Sequence:</h4>
+           <table class="table-borderless">
+            <tbody>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Numbers from the last draw
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow" id="lm_zerosPool">
+             </tr>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Numbers from 2 to 12 draws ago
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow" id="lm_under13Pool">
+             </tr>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Numbers from 13 draws ago and before
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow" id="lm_theRestPool">
+             </tr>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Sequence Results
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow">
+              <td class="tdMD">
+               <button class="btn btn-outline-success btn-sm" onclick="genChosenSeq('lm')" style="margin-top:7px;">GENERATE</button>
+              </td>
+             </tr>
+             <tr class="statsRow">
+               <td class="tdLG" id="lm_resultNumbers">
+               </td>
+               <td class="tdMD" id="lm_resultPattern">
+               </td>
+               <td class="tdMD" id="lm_resultEven">
+               </td>
+               <td class="tdMD" id="lm_resultMiss10">
+               </td>
+             </tr>
+             <tr class="statsRow">
+               <td class="tdMD">
+                <b>
+                  Previous Matches:
+                </b>
+               </td>
+             </tr>
+            </tbody>
+           </table>
+           <div id="lm_prevMatches">
+           </div>
+         </div>
        </div>
-      </div>
      </div>
      <div class="row">
       <div class="col">
@@ -306,10 +372,6 @@
          </option>
         </select>
        </div>
-      </div>
-     </div>
-     <div class="row justify-content-center">
-      <div class="col-4 dropdown_custom">
        <div class="input-group mb-3">
         <label class="input-group-text" for="l6_missA10Drop">
          Miss 10s
@@ -326,10 +388,6 @@
          </option>
         </select>
        </div>
-      </div>
-     </div>
-     <div class="row justify-content-center">
-      <div class="col-4 dropdown_custom">
        <div class="input-group mb-3">
         <label class="input-group-text" for="l6_evenOddDrop">
          Even/Odd
@@ -350,21 +408,92 @@
         </select>
        </div>
       </div>
-     </div>
-     <div class="genBDiv">
-      <button class="genButton" id="l6_genButton">
-       GENERATE
-      </button>
-     </div>
-     <div class="row justify-content-center">
-      <div class="genDisplay">
-       <span style="font-weight: bold;">
-        Generated Sequences:
-       </span>
-       <div id="l6_genList">
-        <br>
-       </div>
+      <div class="col-3">
+        <div class="genBDiv">
+         <button class="genButton" id="l6_genButton">
+          GENERATE
+         </button>
+        </div>
       </div>
+      <div class="col-3">
+        <div class="genDisplay">
+         <span style="font-weight: bold;">
+          Generated Sequences:
+         </span>
+         <div id="l6_genList">
+          <br>
+         </div>
+        </div>
+      </div>
+     </div>
+     <div class="row">
+       <div class="col">
+         <div class="statsDisplay">
+           <h4>Choose Sequence:</h4>
+           <table class="table-borderless">
+            <tbody>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Numbers from the last draw
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow" id="l6_zerosPool">
+             </tr>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Numbers from 2 to 13 draws ago
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow" id="l6_under14Pool">
+             </tr>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Numbers from 14 draws ago and before
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow" id="l6_theRestPool">
+             </tr>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Sequence Results
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow">
+              <td class="tdMD">
+               <button class="btn btn-outline-success btn-sm" onclick="genChosenSeq('l6')" style="margin-top:7px;">GENERATE</button>
+              </td>
+             </tr>
+             <tr class="statsRow">
+               <td class="tdLG" id="l6_resultNumbers">
+               </td>
+               <td class="tdMD" id="l6_resultPattern">
+               </td>
+               <td class="tdMD" id="l6_resultEven">
+               </td>
+               <td class="tdMD" id="l6_resultMiss10">
+               </td>
+             </tr>
+             <tr class="statsRow">
+               <td class="tdMD">
+                <b>
+                  Previous Matches:
+                </b>
+               </td>
+             </tr>
+            </tbody>
+           </table>
+           <div id="l6_prevMatches">
+           </div>
+         </div>
+       </div>
      </div>
      <div class="row">
       <div class="col">
@@ -487,10 +616,6 @@
          </option>
         </select>
        </div>
-      </div>
-     </div>
-     <div class="row justify-content-center">
-      <div class="col-4 dropdown_custom">
        <div class="input-group mb-3">
         <label class="input-group-text" for="dg_missA10Drop">
          Miss 10s
@@ -507,10 +632,6 @@
          </option>
         </select>
        </div>
-      </div>
-     </div>
-     <div class="row justify-content-center">
-      <div class="col-4 dropdown_custom">
        <div class="input-group mb-3">
         <label class="input-group-text" for="dg_evenOddDrop">
          Even/Odd
@@ -528,23 +649,103 @@
         </select>
        </div>
       </div>
-     </div>
-     <div class="genBDiv">
-      <button class="genButton" id="dg_genButton" style="background-color: #ffff80; color: #003399; border-color: #e6e600;">
-       GENERATE
-      </button>
-     </div>
-     <div class="row justify-content-center">
-      <div class="genDisplay">
-       <span style="font-weight: bold;">
-        Generated Sequences:
-       </span>
-       <div id="dg_genList">
-        <br>
-       </div>
-       <div id="genGrand">
-       </div>
+      <div class="col-3">
+        <div class="genBDiv">
+         <button class="genButton" id="dg_genButton" style="background-color: #ffff80; color: #003399; border-color: #e6e600;">
+          GENERATE
+         </button>
+        </div>
       </div>
+      <div class="col-3">
+        <div class="genDisplay">
+         <span style="font-weight: bold;">
+          Generated Sequences:
+         </span>
+         <div id="dg_genList">
+          <br>
+         </div>
+         <div id="genGrand">
+         </div>
+        </div>
+      </div>
+     </div>
+     <div class="row">
+       <div class="col">
+         <div class="statsDisplay">
+           <h4>Choose Sequence:</h4>
+           <table class="table-borderless">
+            <tbody>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Numbers from the last 6 draws
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow" id="dg_under7Pool">
+             </tr>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Numbers from 7 to 14 draws ago
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow" id="dg_under15Pool">
+             </tr>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Numbers from 15 draws ago and before
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow" id="dg_theRestPool">
+             </tr>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Grand Number
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow" id="dg_grandPool">
+             </tr>
+             <tr class="statsRow evenRow">
+              <td class="tdMD">
+               <b>
+                 Sequence Results
+               </b>
+              </td>
+             </tr>
+             <tr class="statsRow">
+              <td class="tdMD">
+               <button class="btn btn-outline-success btn-sm" onclick="genChosenSeq('dg')" style="margin-top:7px;">GENERATE</button>
+              </td>
+             </tr>
+             <tr class="statsRow">
+               <td class="tdLG" id="dg_resultNumbers">
+               </td>
+               <td class="tdMD" id="dg_resultPattern">
+               </td>
+               <td class="tdMD" id="dg_resultEven">
+               </td>
+               <td class="tdMD" id="dg_resultMiss10">
+               </td>
+             </tr>
+             <tr class="statsRow">
+               <td class="tdMD">
+                <b>
+                  Previous Matches:
+                </b>
+               </td>
+             </tr>
+            </tbody>
+           </table>
+           <div id="dg_prevMatches">
+           </div>
+         </div>
+       </div>
      </div>
      <div class="row">
       <div class="col">
@@ -705,7 +906,7 @@
      <br>
      <span>
       &copy;
-            2022 All rights reserved.
+            2024 All rights reserved.
      </span>
      <br>
     </div>
