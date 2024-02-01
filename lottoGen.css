@@ -13,8 +13,8 @@ body {
 }
 
 .dropdown_custom {
-  min-width: 260px;
-  max-width: 280px;
+  min-width: 240px;
+  max-width: 260px;
 }
 
 .lottoCard-bg {
@@ -37,6 +37,7 @@ body {
 
 .genBDiv {
   text-align: center;
+  max-width: 200px;
 }
 
 .genButton {
@@ -48,7 +49,7 @@ body {
   background-color: #e01010;
   cursor: pointer;
   border: medium solid #c90e0e;
-  padding: 0px;
+  margin-left: -70px;
   margin-bottom: 20px;
 }
 
@@ -73,7 +74,6 @@ body {
   text-align: center;
   background-color: white;
   border-radius: 10px;
-  width: 200px;
   margin-bottom: 20px;
   font-size: 14px;
 }
