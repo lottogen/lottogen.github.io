@@ -60,22 +60,22 @@
       </span>
      </div>
      <center>
-       <div class="dropdown-center">
-        <button aria-expanded="false" class="btn btn-secondary dropdown-toggle" data-bs-auto-close="true" data-bs-toggle="dropdown" id="lottoCardDropdown" style="min-width: 180px;" type="button">
+      <div class="dropdown-center">
+       <button aria-expanded="false" class="btn btn-secondary dropdown-toggle" data-bs-auto-close="true" data-bs-toggle="dropdown" id="lottoCardDropdown" style="min-width: 180px;" type="button">
+        Lotto Max
+       </button>
+       <ul aria-labelledby="lottoCardDropdown" class="dropdown-menu">
+        <li class="dropdown-item" id="lm_cardPick">
          Lotto Max
-        </button>
-        <ul aria-labelledby="lottoCardDropdown" class="dropdown-menu">
-         <li class="dropdown-item" id="lm_cardPick">
-          Lotto Max
-         </li>
-         <li class="dropdown-item" id="l6_cardPick">
-          Lotto 6/49
-         </li>
-         <li class="dropdown-item" id="dg_cardPick">
-          Daily Grand
-         </li>
-        </ul>
-       </div>
+        </li>
+        <li class="dropdown-item" id="l6_cardPick">
+         Lotto 6/49
+        </li>
+        <li class="dropdown-item" id="dg_cardPick">
+         Daily Grand
+        </li>
+       </ul>
+      </div>
      </center>
      <br>
     </div>
@@ -88,107 +88,107 @@
      <br>
      <div class="row justify-content-center">
       <div class="col-md-3">
-        <div class="row justify-content-center">
-          <div class="col dropdown_custom">
-            <div class="input-group mb-3">
-             <label class="input-group-text" for="lm_patternDrop">
-              Pattern
-             </label>
-             <select class="form-select" id="lm_patternDrop">
-              <option value="1-6-0">
-               1-6-0
-              </option>
-              <option value="0-6-1">
-               0-6-1
-              </option>
-              <option value="1-5-1">
-               1-5-1
-              </option>
-              <option value="2-5-0">
-               1-4-2
-              </option>
-              <option value="2-5-0">
-               2-4-1
-              </option>
-              <option value="2-4-1">
-               2-5-0
-              </option>
-              <option value="1-4-2">
-               0-7-0
-              </option>
-              <option value="0-7-0">
-               0-5-2
-              </option>
-              <option value="Any">
-               Any
-              </option>
-             </select>
-            </div>
-            <div class="input-group mb-3">
-             <label class="input-group-text" for="lm_missA10Drop">
-              Miss 10s
-             </label>
-             <select class="form-select" id="lm_missA10Drop">
-              <option value="Yes">
-               Yes
-              </option>
-              <option value="No">
-               No
-              </option>
-              <option value="Any">
-               Any
-              </option>
-             </select>
-            </div>
-            <div class="input-group mb-3">
-             <label class="input-group-text" for="lm_evenOddDrop">
-              Even/Odd
-             </label>
-             <select class="form-select" id="lm_evenOddDrop">
-              <option value="4-3">
-               4/3
-              </option>
-              <option value="3-4">
-               3/4
-              </option>
-              <option value="5-2">
-               5/2
-              </option>
-              <option value="2-5">
-               2/5
-              </option>
-              <option value="Any">
-               Any
-              </option>
-             </select>
-            </div>
-          </div>
+       <div class="row justify-content-center">
+        <div class="col dropdown_custom">
+         <div class="input-group mb-3">
+          <label class="input-group-text" for="lm_patternDrop">
+           Pattern
+          </label>
+          <select class="form-select" id="lm_patternDrop">
+           <option value="1-6-0">
+            1-6-0
+           </option>
+           <option value="0-6-1">
+            0-6-1
+           </option>
+           <option value="1-5-1">
+            1-5-1
+           </option>
+           <option value="2-5-0">
+            1-4-2
+           </option>
+           <option value="2-5-0">
+            2-4-1
+           </option>
+           <option value="2-4-1">
+            2-5-0
+           </option>
+           <option value="1-4-2">
+            0-7-0
+           </option>
+           <option value="0-7-0">
+            0-5-2
+           </option>
+           <option value="Any">
+            Any
+           </option>
+          </select>
+         </div>
+         <div class="input-group mb-3">
+          <label class="input-group-text" for="lm_missA10Drop">
+           Miss 10s
+          </label>
+          <select class="form-select" id="lm_missA10Drop">
+           <option value="Yes">
+            Yes
+           </option>
+           <option value="No">
+            No
+           </option>
+           <option value="Any">
+            Any
+           </option>
+          </select>
+         </div>
+         <div class="input-group mb-3">
+          <label class="input-group-text" for="lm_evenOddDrop">
+           Even/Odd
+          </label>
+          <select class="form-select" id="lm_evenOddDrop">
+           <option value="4-3">
+            4/3
+           </option>
+           <option value="3-4">
+            3/4
+           </option>
+           <option value="5-2">
+            5/2
+           </option>
+           <option value="2-5">
+            2/5
+           </option>
+           <option value="Any">
+            Any
+           </option>
+          </select>
+         </div>
         </div>
+       </div>
       </div>
       <div class="col-md-3">
-        <div class="row justify-content-end">
-          <div class="col">
-            <center>
-              <button class="genButton" id="lm_genButton" style="background-color: #0977ad; color: #ffffff; border-color: #056a9c;">
-                GENERATE
-              </button>
-            </center>
-          </div>
+       <div class="row justify-content-end">
+        <div class="col">
+         <center>
+          <button class="genButton" id="lm_genButton" style="background-color: #0977ad; color: #ffffff; border-color: #056a9c;">
+           GENERATE
+          </button>
+         </center>
         </div>
+       </div>
       </div>
       <div class="col-md-3">
-        <div class="row justify-content-center">
-          <div class="col dropdown_custom">
-            <div class="genDisplay">
-             <span style="font-weight: bold;">
-              Generated Sequences:
-             </span>
-             <div id="lm_genList">
-              <br>
-             </div>
-            </div>
+       <div class="row justify-content-center">
+        <div class="col dropdown_custom">
+         <div class="genDisplay">
+          <span style="font-weight: bold;">
+           Generated Sequences:
+          </span>
+          <div id="lm_genList">
+           <br>
           </div>
+         </div>
         </div>
+       </div>
       </div>
      </div>
      <!--<div class="genBDiv">
@@ -197,73 +197,77 @@
      <div class="row justify-content-center">
      </div>
      <div class="row">
-       <div class="col">
-         <div class="statsDisplay">
-           <h4>Choose Sequence:</h4>
-           <table class="table-borderless">
-            <tbody>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Numbers from the last draw
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow" id="lm_zerosPool">
-             </tr>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Numbers from 2 to 12 draws ago
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow" id="lm_under13Pool">
-             </tr>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Numbers from 13 draws ago and before
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow" id="lm_theRestPool">
-             </tr>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Sequence Results
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow">
-              <td class="tdMD">
-               <button class="btn btn-outline-success btn-sm" onclick="genChosenSeq('lm')" style="margin-top:7px;">GENERATE</button>
-              </td>
-             </tr>
-             <tr class="statsRow">
-               <td class="tdLG" id="lm_resultNumbers">
-               </td>
-               <td class="tdMD" id="lm_resultPattern">
-               </td>
-               <td class="tdMD" id="lm_resultEven">
-               </td>
-               <td class="tdMD" id="lm_resultMiss10">
-               </td>
-             </tr>
-             <tr class="statsRow">
-               <td class="tdMD">
-                <b>
-                  Previous Matches:
-                </b>
-               </td>
-             </tr>
-            </tbody>
-           </table>
-           <div id="lm_prevMatches">
-           </div>
-         </div>
+      <div class="col">
+       <div class="statsDisplay">
+        <h4>
+         Choose Sequence:
+        </h4>
+        <table class="table-borderless">
+         <tbody>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Numbers from the last draw
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow" id="lm_zerosPool">
+          </tr>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Numbers from 2 to 12 draws ago
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow" id="lm_under13Pool">
+          </tr>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Numbers from 13 draws ago and before
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow" id="lm_theRestPool">
+          </tr>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Sequence Results
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow">
+           <td class="tdMD">
+            <button class="btn btn-outline-success btn-sm" onclick="genChosenSeq('lm')" style="margin-top:7px;">
+             GENERATE
+            </button>
+           </td>
+          </tr>
+          <tr class="statsRow">
+           <td class="tdLG" id="lm_resultNumbers">
+           </td>
+           <td class="tdMD" id="lm_resultPattern">
+           </td>
+           <td class="tdMD" id="lm_resultEven">
+           </td>
+           <td class="tdMD" id="lm_resultMiss10">
+           </td>
+          </tr>
+          <tr class="statsRow">
+           <td class="tdMD">
+            <b>
+             Previous Matches:
+            </b>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <div id="lm_prevMatches">
+        </div>
        </div>
+      </div>
      </div>
      <div class="row">
       <div class="col">
@@ -355,171 +359,175 @@
      <br>
      <div class="row justify-content-center">
       <div class="col-md-3">
-        <div class="row justify-content-center">
-          <div class="col dropdown_custom">
-            <div class="input-group mb-3">
-             <label class="input-group-text" for="l6_patternDrop">
-              Pattern
-             </label>
-             <select class="form-select" id="l6_patternDrop">
-              <option value="1-5-0">
-               0-5-1
-              </option>
-              <option value="0-5-1">
-               1-5-0
-              </option>
-              <option value="1-4-1">
-               1-4-1
-              </option>
-              <option value="2-4-0">
-               0-4-2
-              </option>
-              <option value="0-4-2">
-               2-4-0
-              </option>
-              <option value="0-6-0">
-               0-6-0
-              </option>
-              <option value="0-6-0">
-               1-3-2
-              </option>
-              <option value="Any">
-               Any
-              </option>
-             </select>
-            </div>
-            <div class="input-group mb-3">
-             <label class="input-group-text" for="l6_missA10Drop">
-              Miss 10s
-             </label>
-             <select class="form-select" id="l6_missA10Drop">
-              <option value="Yes">
-               Yes
-              </option>
-              <option value="No">
-               No
-              </option>
-              <option value="Any">
-               Any
-              </option>
-             </select>
-            </div>
-            <div class="input-group mb-3">
-             <label class="input-group-text" for="l6_evenOddDrop">
-              Even/Odd
-             </label>
-             <select class="form-select" id="l6_evenOddDrop">
-              <option value="3-3">
-               3/3
-              </option>
-              <option value="4-2">
-               4/2
-              </option>
-              <option value="2-4">
-               2/4
-              </option>
-              <option value="Any">
-               Any
-              </option>
-             </select>
-            </div>
-          </div>
+       <div class="row justify-content-center">
+        <div class="col dropdown_custom">
+         <div class="input-group mb-3">
+          <label class="input-group-text" for="l6_patternDrop">
+           Pattern
+          </label>
+          <select class="form-select" id="l6_patternDrop">
+           <option value="1-5-0">
+            0-5-1
+           </option>
+           <option value="0-5-1">
+            1-5-0
+           </option>
+           <option value="1-4-1">
+            1-4-1
+           </option>
+           <option value="2-4-0">
+            0-4-2
+           </option>
+           <option value="0-4-2">
+            2-4-0
+           </option>
+           <option value="0-6-0">
+            0-6-0
+           </option>
+           <option value="0-6-0">
+            1-3-2
+           </option>
+           <option value="Any">
+            Any
+           </option>
+          </select>
+         </div>
+         <div class="input-group mb-3">
+          <label class="input-group-text" for="l6_missA10Drop">
+           Miss 10s
+          </label>
+          <select class="form-select" id="l6_missA10Drop">
+           <option value="Yes">
+            Yes
+           </option>
+           <option value="No">
+            No
+           </option>
+           <option value="Any">
+            Any
+           </option>
+          </select>
+         </div>
+         <div class="input-group mb-3">
+          <label class="input-group-text" for="l6_evenOddDrop">
+           Even/Odd
+          </label>
+          <select class="form-select" id="l6_evenOddDrop">
+           <option value="3-3">
+            3/3
+           </option>
+           <option value="4-2">
+            4/2
+           </option>
+           <option value="2-4">
+            2/4
+           </option>
+           <option value="Any">
+            Any
+           </option>
+          </select>
+         </div>
         </div>
+       </div>
       </div>
       <div class="col-md-3">
-        <div class="row justify-content-end">
-          <div class="col">
-            <center>
-              <button class="genButton" id="l6_genButton">
-               GENERATE
-              </button>
-            </center>
-          </div>
+       <div class="row justify-content-end">
+        <div class="col">
+         <center>
+          <button class="genButton" id="l6_genButton">
+           GENERATE
+          </button>
+         </center>
         </div>
+       </div>
       </div>
       <div class="col-md-3">
-        <div class="row justify-content-center">
-          <div class="col dropdown_custom">
-            <div class="genDisplay">
-             <span style="font-weight: bold;">
-              Generated Sequences:
-             </span>
-             <div id="l6_genList">
-              <br>
-             </div>
-            </div>
+       <div class="row justify-content-center">
+        <div class="col dropdown_custom">
+         <div class="genDisplay">
+          <span style="font-weight: bold;">
+           Generated Sequences:
+          </span>
+          <div id="l6_genList">
+           <br>
           </div>
+         </div>
         </div>
+       </div>
       </div>
      </div>
      <div class="row">
-       <div class="col">
-         <div class="statsDisplay">
-           <h4>Choose Sequence:</h4>
-           <table class="table-borderless">
-            <tbody>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Numbers from the last draw
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow" id="l6_zerosPool">
-             </tr>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Numbers from 2 to 13 draws ago
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow" id="l6_under14Pool">
-             </tr>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Numbers from 14 draws ago and before
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow" id="l6_theRestPool">
-             </tr>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Sequence Results
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow">
-              <td class="tdMD">
-               <button class="btn btn-outline-success btn-sm" onclick="genChosenSeq('l6')" style="margin-top:7px;">GENERATE</button>
-              </td>
-             </tr>
-             <tr class="statsRow">
-               <td class="tdLG" id="l6_resultNumbers">
-               </td>
-               <td class="tdMD" id="l6_resultPattern">
-               </td>
-               <td class="tdMD" id="l6_resultEven">
-               </td>
-               <td class="tdMD" id="l6_resultMiss10">
-               </td>
-             </tr>
-             <tr class="statsRow">
-               <td class="tdMD">
-                <b>
-                  Previous Matches:
-                </b>
-               </td>
-             </tr>
-            </tbody>
-           </table>
-           <div id="l6_prevMatches">
-           </div>
-         </div>
+      <div class="col">
+       <div class="statsDisplay">
+        <h4>
+         Choose Sequence:
+        </h4>
+        <table class="table-borderless">
+         <tbody>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Numbers from the last draw
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow" id="l6_zerosPool">
+          </tr>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Numbers from 2 to 13 draws ago
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow" id="l6_under14Pool">
+          </tr>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Numbers from 14 draws ago and before
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow" id="l6_theRestPool">
+          </tr>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Sequence Results
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow">
+           <td class="tdMD">
+            <button class="btn btn-outline-success btn-sm" onclick="genChosenSeq('l6')" style="margin-top:7px;">
+             GENERATE
+            </button>
+           </td>
+          </tr>
+          <tr class="statsRow">
+           <td class="tdLG" id="l6_resultNumbers">
+           </td>
+           <td class="tdMD" id="l6_resultPattern">
+           </td>
+           <td class="tdMD" id="l6_resultEven">
+           </td>
+           <td class="tdMD" id="l6_resultMiss10">
+           </td>
+          </tr>
+          <tr class="statsRow">
+           <td class="tdMD">
+            <b>
+             Previous Matches:
+            </b>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <div id="l6_prevMatches">
+        </div>
        </div>
+      </div>
      </div>
      <div class="row">
       <div class="col">
@@ -611,179 +619,183 @@
      <br>
      <div class="row justify-content-center">
       <div class="col-md-3">
-        <div class="row justify-content-center">
-          <div class="col dropdown_custom">
-            <div class="input-group mb-3">
-             <label class="input-group-text" for="dg_patternDrop">
-              Pattern
-             </label>
-             <select class="form-select" id="dg_patternDrop">
-              <option value="1-4-0">
-               3-1-1
-              </option>
-              <option value="0-4-1">
-               3-2-0
-              </option>
-              <option value="0-4-1">
-               2-1-2
-              </option>
-              <option value="1-3-1">
-               2-2-1
-              </option>
-              <option value="2-3-0">
-               3-0-2
-              </option>
-              <option value="0-3-2">
-               4-1-0
-              </option>
-              <option value="0-5-0">
-               4-0-1
-              </option>
-              <option value="Any">
-               Any
-              </option>
-             </select>
-            </div>
-            <div class="input-group mb-3">
-             <label class="input-group-text" for="dg_missA10Drop">
-              Miss 10s
-             </label>
-             <select class="form-select" id="dg_missA10Drop">
-              <option value="Yes">
-               Yes
-              </option>
-              <option value="No">
-               No
-              </option>
-              <option value="Any">
-               Any
-              </option>
-             </select>
-            </div>
-            <div class="input-group mb-3">
-             <label class="input-group-text" for="dg_evenOddDrop">
-              Even/Odd
-             </label>
-             <select class="form-select" id="dg_evenOddDrop">
-              <option value="3-2">
-               3/2
-              </option>
-              <option value="2-3">
-               2/3
-              </option>
-              <option value="Any">
-               Any
-              </option>
-             </select>
-            </div>
-          </div>
+       <div class="row justify-content-center">
+        <div class="col dropdown_custom">
+         <div class="input-group mb-3">
+          <label class="input-group-text" for="dg_patternDrop">
+           Pattern
+          </label>
+          <select class="form-select" id="dg_patternDrop">
+           <option value="1-4-0">
+            3-1-1
+           </option>
+           <option value="0-4-1">
+            3-2-0
+           </option>
+           <option value="0-4-1">
+            2-1-2
+           </option>
+           <option value="1-3-1">
+            2-2-1
+           </option>
+           <option value="2-3-0">
+            3-0-2
+           </option>
+           <option value="0-3-2">
+            4-1-0
+           </option>
+           <option value="0-5-0">
+            4-0-1
+           </option>
+           <option value="Any">
+            Any
+           </option>
+          </select>
+         </div>
+         <div class="input-group mb-3">
+          <label class="input-group-text" for="dg_missA10Drop">
+           Miss 10s
+          </label>
+          <select class="form-select" id="dg_missA10Drop">
+           <option value="Yes">
+            Yes
+           </option>
+           <option value="No">
+            No
+           </option>
+           <option value="Any">
+            Any
+           </option>
+          </select>
+         </div>
+         <div class="input-group mb-3">
+          <label class="input-group-text" for="dg_evenOddDrop">
+           Even/Odd
+          </label>
+          <select class="form-select" id="dg_evenOddDrop">
+           <option value="3-2">
+            3/2
+           </option>
+           <option value="2-3">
+            2/3
+           </option>
+           <option value="Any">
+            Any
+           </option>
+          </select>
+         </div>
         </div>
+       </div>
       </div>
       <div class="col-md-3">
-        <div class="row justify-content-end">
-          <div class="col">
-            <center>
-              <button class="genButton" id="dg_genButton" style="background-color: #ffff80; color: #003399; border-color: #e6e600;">
-               GENERATE
-              </button>
-            </center>
-          </div>
+       <div class="row justify-content-end">
+        <div class="col">
+         <center>
+          <button class="genButton" id="dg_genButton" style="background-color: #ffff80; color: #003399; border-color: #e6e600;">
+           GENERATE
+          </button>
+         </center>
         </div>
+       </div>
       </div>
       <div class="col-md-3">
-        <div class="row justify-content-center">
-          <div class="row dropdown_custom">
-            <div class="genDisplay">
-             <span style="font-weight: bold;">
-              Generated Sequences:
-             </span>
-             <div id="dg_genList">
-              <br>
-             </div>
-             <div id="genGrand">
-             </div>
-            </div>
+       <div class="row justify-content-center">
+        <div class="row dropdown_custom">
+         <div class="genDisplay">
+          <span style="font-weight: bold;">
+           Generated Sequences:
+          </span>
+          <div id="dg_genList">
+           <br>
           </div>
+          <div id="genGrand">
+          </div>
+         </div>
         </div>
+       </div>
       </div>
      </div>
      <div class="row">
-       <div class="col">
-         <div class="statsDisplay">
-           <h4>Choose Sequence:</h4>
-           <table class="table-borderless">
-            <tbody>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Numbers from the last 6 draws
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow" id="dg_under7Pool">
-             </tr>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Numbers from 7 to 14 draws ago
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow" id="dg_under15Pool">
-             </tr>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Numbers from 15 draws ago and before
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow" id="dg_theRestPool">
-             </tr>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Grand Number
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow" id="dg_grandPool">
-             </tr>
-             <tr class="statsRow evenRow">
-              <td class="tdMD">
-               <b>
-                 Sequence Results
-               </b>
-              </td>
-             </tr>
-             <tr class="statsRow">
-              <td class="tdMD">
-               <button class="btn btn-outline-success btn-sm" onclick="genChosenSeq('dg')" style="margin-top:7px;">GENERATE</button>
-              </td>
-             </tr>
-             <tr class="statsRow">
-               <td class="tdLG" id="dg_resultNumbers">
-               </td>
-               <td class="tdMD" id="dg_resultPattern">
-               </td>
-               <td class="tdMD" id="dg_resultEven">
-               </td>
-               <td class="tdMD" id="dg_resultMiss10">
-               </td>
-             </tr>
-             <tr class="statsRow">
-               <td class="tdMD">
-                <b>
-                  Previous Matches:
-                </b>
-               </td>
-             </tr>
-            </tbody>
-           </table>
-           <div id="dg_prevMatches">
-           </div>
-         </div>
+      <div class="col">
+       <div class="statsDisplay">
+        <h4>
+         Choose Sequence:
+        </h4>
+        <table class="table-borderless">
+         <tbody>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Numbers from the last 6 draws
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow" id="dg_under7Pool">
+          </tr>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Numbers from 7 to 14 draws ago
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow" id="dg_under15Pool">
+          </tr>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Numbers from 15 draws ago and before
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow" id="dg_theRestPool">
+          </tr>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Grand Number
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow" id="dg_grandPool">
+          </tr>
+          <tr class="statsRow evenRow">
+           <td class="tdMD">
+            <b>
+             Sequence Results
+            </b>
+           </td>
+          </tr>
+          <tr class="statsRow">
+           <td class="tdMD">
+            <button class="btn btn-outline-success btn-sm" onclick="genChosenSeq('dg')" style="margin-top:7px;">
+             GENERATE
+            </button>
+           </td>
+          </tr>
+          <tr class="statsRow">
+           <td class="tdLG" id="dg_resultNumbers">
+           </td>
+           <td class="tdMD" id="dg_resultPattern">
+           </td>
+           <td class="tdMD" id="dg_resultEven">
+           </td>
+           <td class="tdMD" id="dg_resultMiss10">
+           </td>
+          </tr>
+          <tr class="statsRow">
+           <td class="tdMD">
+            <b>
+             Previous Matches:
+            </b>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <div id="dg_prevMatches">
+        </div>
        </div>
+      </div>
      </div>
      <div class="row">
       <div class="col">
@@ -934,7 +946,7 @@
     <div class="col-sm-2 disclaimerInfo">
      <br>
      <span id="updatedDate" style="display: none;">
-      Updated January 31, 2024.
+      Updated February 01, 2024.
      </span>
      <span>
       Disclaimer: the contents of this website are for entertainment purposes only,
