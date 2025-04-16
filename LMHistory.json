@@ -2,6 +2,11 @@
     "id": "lottoMax",
     "history": [
         {
+            "date": "Tuesday, April 15, 2025",
+            "main": "12 20 21 27 36 40 42",
+            "bonus": "5"
+        },
+        {
             "date": "Friday, April 11, 2025",
             "main": "6 23 24 43 44 49 50",
             "bonus": "34"
