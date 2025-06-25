@@ -503,7 +503,9 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
         else patternGroupC++;
         if (seq[j] % 2 == 0) seqEven++;
       }
-      let newStat = {date: history[k].date, main: history[k].main, seqLength: seq.length, bonus: bonus, bType: bType, pattern: patternGroupA + "-" + patternGroupB + "-" + patternGroupC, even: seqEven, miss10s: calc_missing10s(seq)};
+      var prize = "";
+      if (history[k].prize !== undefined) { prize = history[k].prize }
+      let newStat = {date: history[k].date, main: history[k].main, seqLength: seq.length, bonus: bonus, bType: bType, pattern: patternGroupA + "-" + patternGroupB + "-" + patternGroupC, even: seqEven, miss10s: calc_missing10s(seq), prize: prize};
       tempStats.push(newStat);
     }
 
@@ -560,6 +562,7 @@ function fillStatsDiv(tempStats, conditionStats, miss10Stats, statsDiv) {
     divString += "<td class=\"tdMD\"><b>Even/Odd: </b>" + tempStats[i].even + "/" + (tempStats[i].seqLength - tempStats[i].even) + "</td>";
     if (tempStats[i].miss10s) divString += "<td class=\"tdMD\"><b>Miss 10s: </b>Yes</td>";
     else divString += "<td class=\"tdMD\"><b>Miss 10s: </b>No</td>";
+    divString += "<td class=\"tdMD\"><b>Prize: </b>" + tempStats[i].prize + "</td>";
     divString += "</tr>";
     if (evenRow == "") evenRow = " evenRow";
     else evenRow = "";
