@@ -2,6 +2,12 @@
     "id": "lottoMax",
     "history": [
         {
+            "date": "Friday, July 11, 2025",
+            "main": "4 5 10 34 36 44 50",
+            "bonus": "23",
+            "prize": "$35,000,000.00"
+        },
+        {
             "date": "Tuesday, July 08, 2025",
             "main": "7 8 18 27 38 48 50",
             "bonus": "5",
