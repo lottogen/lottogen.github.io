@@ -2,6 +2,12 @@
     "id": "dailyGrand",
     "history": [
         {
+            "date": "Thursday, July 24, 2025",
+            "main": "1 2 3 9 37",
+            "grand": "4",
+            "prize": "NOT WON"
+        },
+        {
             "date": "Monday, July 21, 2025",
             "main": "1 2 39 41 49",
             "grand": "6",
