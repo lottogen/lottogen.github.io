@@ -2,6 +2,12 @@
     "id": "lottoMax",
     "history": [
         {
+            "date": "Friday, August 22, 2025",
+            "main": "5 8 9 21 22 30 45",
+            "bonus": "16",
+            "prize": "CARRIED OVER"
+        },
+        {
             "date": "Tuesday, August 19, 2025",
             "main": "7 10 11 17 19 34 45",
             "bonus": "36",
