@@ -645,6 +645,22 @@ function addChosenNumber(numberID) {
   }
 }
 
+function clearChosenSeq(lotto) {
+  if (lotto == "lm") {
+    lm_chosenList = [];
+    document.getElementById('btn-check-lm-50').checked = false;
+  }
+  else if (lotto == "l6") {
+    l6_chosenList = [];
+  }
+  else {
+    dg_chosenList = [];
+  }
+  for (var i = 1; i < 50; i++) {
+    document.getElementById('btn-check-' + lotto + '-' + i).checked = false;
+  }
+}
+
 function genChosenSeq(lotto) {
   var patternA = 0;
   var patternB = 0;
