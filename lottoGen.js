@@ -553,7 +553,7 @@ function fillStatsDiv(tempStats, conditionStats, miss10Stats, statsDiv) {
 
   var divString = "";
   var evenRow = "";
-  for (i = 0; i < 30; i++) {
+  for (i = 0; i < 50; i++) {
     divString += "<tr class=\"statsRow" + evenRow + "\">";
     divString += "<td class=\"tdLG\"><b>Date: </b>" + tempStats[i].date + "</td>";
     divString += "<td class=\"tdLG\"><b>Numbers: </b>" + tempStats[i].main + "</td>";
