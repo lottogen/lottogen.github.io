@@ -473,7 +473,7 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
   var tempZeros = [];
   var tempMid = [];
   var tempRest = [];
-  for (var k = (history.length - 540); k < history.length; k++) {
+  for (var k = (history.length - 840); k < history.length; k++) {
     var seq = history[k].main.split("-");
     if (seq.length === 1) seq = history[k].main.split(" ");
     var bonus = history[k].bonus;
@@ -483,7 +483,7 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
       bType = "G: ";
     }
 
-    if (k > (history.length - 501)) {
+    if (k > (history.length - 801)) {
       tempZeros = [];
       tempMid = [];
       tempRest = [];
