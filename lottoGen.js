@@ -10,6 +10,7 @@ let lm_mainCount = {
 let lm_mainFreq = JSON.parse(JSON.stringify(lm_mainCount)); //this makes a deep copy
 let lm_tempCount = JSON.parse(JSON.stringify(lm_mainCount));
 let lm_patternCount = {'1-5-1':0, '1-6-0':0, '0-6-1':0};
+let lm_patternWins = {'1-5-1':0, '1-6-0':0, '0-6-1':0};
 let lm_evenCount = {'4/3':0, '3/4':0, '5/2':0};
 let lm_miss10Count = {'Yes':0, 'No':0};
 
@@ -25,6 +26,7 @@ let l6_mainCount = {
 let l6_mainFreq = JSON.parse(JSON.stringify(l6_mainCount)); //this makes a deep copy
 let l6_tempCount = JSON.parse(JSON.stringify(l6_mainCount));
 let l6_patternCount = {'1-4-1':0, '0-5-1':0, '1-5-0':0};
+let l6_patternWins = {'1-4-1':0, '0-5-1':0, '1-5-0':0};
 let l6_evenCount = {'3/3':0, '4/2':0, '2/4':0};
 let l6_miss10Count = {'Yes':0, 'No':0};
 
@@ -38,6 +40,7 @@ let dg_mainFreq = JSON.parse(JSON.stringify(l6_mainCount)); //this makes a deep 
 let grandFreq = JSON.parse(JSON.stringify(grandCount));
 let dg_tempCount = JSON.parse(JSON.stringify(l6_mainCount));
 let dg_patternCount = {'3-1-1':0, '3-0-2':0, '3-2-0':0};
+let dg_patternWins = {'3-1-1':0, '3-0-2':0, '3-2-0':0};
 let dg_evenCount = {'3/2':0, '4/1':0, '1/4':0};
 let dg_miss10Count = {'Yes':0, 'No':0};
 
@@ -123,7 +126,7 @@ function lm_preCalculations() {
 
   var lm_tempStats = [];
   calc_tempStats(maxHistory, lm_tempCount, lm_tempStats, 1, 13);
-  let lm_conditionStats = calc_conditionFreq(lm_patternCount, lm_evenCount, lm_miss10Count, lm_tempStats, 7);
+  let lm_conditionStats = calc_conditionFreq(lm_patternCount, lm_patternWins, lm_evenCount, lm_miss10Count, lm_tempStats, 7);
 
   console.log("LMax numbers with overdue of 0: ");
   console.log(lm_zeros);
@@ -225,7 +228,7 @@ function l6_preCalculations() {
 
   var l6_tempStats = [];
   calc_tempStats(history649, l6_tempCount, l6_tempStats, 1, 14);
-  let l6_conditionStats = calc_conditionFreq(l6_patternCount, l6_evenCount, l6_miss10Count, l6_tempStats, 6);
+  let l6_conditionStats = calc_conditionFreq(l6_patternCount, l6_patternWins, l6_evenCount, l6_miss10Count, l6_tempStats, 6);
 
   console.log("6/49 numbers with overdue of 0: ");
   console.log(l6_zeros);
@@ -328,7 +331,7 @@ function dg_preCalculations() {
 
   var dg_tempStats = [];
   calc_tempStats(dgHistory, dg_tempCount, dg_tempStats, 7, 15);
-  let dg_conditionStats = calc_conditionFreq(dg_patternCount, dg_evenCount, dg_miss10Count, dg_tempStats, 5);
+  let dg_conditionStats = calc_conditionFreq(dg_patternCount, dg_patternWins, dg_evenCount, dg_miss10Count, dg_tempStats, 5);
 
   console.log("DG numbers with overdue of under 7: ");
   console.log(dg_under7);
@@ -518,12 +521,19 @@ function calc_tempStats(history, tempCount, tempStats, lowLimit, midLimit) {
   }
 }
 
-function calc_conditionFreq(patternCount, evenCount, miss10Count, tempStats, lottoSeqSize) {
+function calc_conditionFreq(patternCount, patternWins, evenCount, miss10Count, tempStats, lottoSeqSize) {
   for (var i = 0; i < tempStats.length; i++) {
     if (patternCount[tempStats[i].pattern] === undefined) {
       patternCount[tempStats[i].pattern] = 1;
     }
     else patternCount[tempStats[i].pattern]++;
+
+    if (tempStats[i].prize.includes('$')) {
+      if (patternWins[tempStats[i].pattern] === undefined) {
+        patternWins[tempStats[i].pattern] = 1;
+      }
+      else patternWins[tempStats[i].pattern]++;
+    }
 
     if (evenCount[tempStats[i].even + "/" + (lottoSeqSize - tempStats[i].even)] === undefined) {
       evenCount[tempStats[i].even + "/" + (lottoSeqSize - tempStats[i].even)] = 1;
@@ -535,17 +545,17 @@ function calc_conditionFreq(patternCount, evenCount, miss10Count, tempStats, lot
   }
   let sortedPattern = Object.entries(patternCount).sort((a,b) => b[1] - a[1]);
   let sortedEven = Object.entries(evenCount).sort((a,b) => b[1] - a[1]);
-  return [sortedPattern, sortedEven];
+  return [sortedPattern, patternWins, sortedEven];
 }
 
 function fillStatsDiv(tempStats, conditionStats, miss10Stats, statsDiv) {
   var patternString = "";
   var evenString = "";
   for (var i = 0; i < conditionStats[0].length; i++) {
-    patternString += "<td class=\"tdMD\"><b>" + conditionStats[0][i][0] + ": </b>" + conditionStats[0][i][1] + "</td>";
+    patternString += "<td class=\"tdMD\"><b>" + conditionStats[0][i][0] + ": </b>" + conditionStats[0][i][1] + " (WINS: " + conditionStats[1][conditionStats[0][i][0]] + ")</td>";
   }
   for (i = 0; i < conditionStats[1].length; i++) {
-    evenString += "<td class=\"tdMD\"><b>" + conditionStats[1][i][0] + ": </b>" + conditionStats[1][i][1] + "</td>";
+    evenString += "<td class=\"tdMD\"><b>" + conditionStats[2][i][0] + ": </b>" + conditionStats[2][i][1] + "</td>";
   }
   document.getElementById(statsDiv[0]).innerHTML = patternString;
   document.getElementById(statsDiv[1]).innerHTML = evenString;
