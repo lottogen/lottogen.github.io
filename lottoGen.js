@@ -553,8 +553,8 @@ function fillStatsDiv(tempStats, conditionStats, miss10Stats, statsDiv) {
   var evenString = "";
   for (var i = 0; i < conditionStats[0].length; i++) {
     patternString += "<td class=\"tdLG\"><b>" + conditionStats[0][i][0] + ": </b>" + conditionStats[0][i][1];
-    if (conditionStats[1][conditionStats[0][i][0]] === undefined) patternString += ")</td>";
-    else patternString += " (WINS: " + conditionStats[1][conditionStats[0][i][0]] + "</td>";
+    if (conditionStats[1][conditionStats[0][i][0]] === undefined) patternString += "</td>";
+    else patternString += " (WINS: " + conditionStats[1][conditionStats[0][i][0]] + ")</td>";
   }
   for (i = 0; i < conditionStats[2].length; i++) {
     evenString += "<td class=\"tdMD\"><b>" + conditionStats[2][i][0] + ": </b>" + conditionStats[2][i][1] + "</td>";
