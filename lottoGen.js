@@ -677,13 +677,11 @@ function clearChosenSeq(lotto) {
 function selectSeqOnChooser(generatedSeq) {
   //console.log(generatedSeq);
   var parsedSeq = generatedSeq.split(' ');
-  console.log(parsedSeq);
   clearChosenSeq(parsedSeq[0]);
   for (var i = 1; i < parsedSeq.length; i++) {
     addChosenNumber("btn-check-" + parsedSeq[0] + "-" + parsedSeq[i]);
-    console.log("btn-check-" + parsedSeq[0] + "-" + parsedSeq[i]);
+    document.getElementById("btn-check-" + parsedSeq[0] + "-" + parsedSeq[i]).checked = true;
   }
-  console.log("Done in selectSeqOnChooser()");
 }
 
 function genChosenSeq(lotto) {

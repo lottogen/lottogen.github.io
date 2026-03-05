@@ -66,6 +66,7 @@ body {
 
 .sequenceButton {
   margin: 4px;
+  width: 175px;
 }
 
 .genButton:hover {
