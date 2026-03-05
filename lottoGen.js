@@ -200,14 +200,15 @@ function genLMSequence() {
   lm_genListDiv.innerHTML = "";
   for (var el in lm_genList) {
     var seq = lm_genList[el];
+    var seqStr = "";
     for (var num in seq) {
-      lm_genListDiv.innerHTML += (" " + seq[num]);
+      //lm_genListDiv.innerHTML += (" " + seq[num]);
+      seqStr += (" " + seq[num]);
     }
+    lm_genListDiv.innerHTML = "<button class=\"btn btn-outline-dark sequenceButton\" onclick=\"selectSeqOnChooser('lm " + seqStr.trim() + "')\">" + seqStr.trim() + "</button>";
     lm_genListDiv.innerHTML += '<br>';
   }
 }
-
-
 
 function l6_preCalculations() {
   l6_totalGenList = [];
@@ -670,6 +671,15 @@ function clearChosenSeq(lotto) {
   }
   for (var i = 1; i < 50; i++) {
     document.getElementById('btn-check-' + lotto + '-' + i).checked = false;
+  }
+}
+
+function selectSeqOnChooser(generatedSeq) {
+  //console.log(generatedSeq);
+  var parsedSeq = generatedSeq.split(" ");
+  clearChosenSeq(parsedSeq[0]);
+  for (var i = 1; i < parsedSeq.length; i++) {
+    addChosenNumber("btn-check-" + parsedSeq[0] + "-" + parsedSeq[i]);
   }
 }
 
