@@ -302,9 +302,12 @@ function genL6Sequence() {
   l6_genListDiv.innerHTML = "";
   for (var el in l6_genList) {
     var seq = l6_genList[el];
+    var seqStr = "";
     for (var num in seq) {
-      l6_genListDiv.innerHTML += (" " + seq[num]);
+      //l6_genListDiv.innerHTML += (" " + seq[num]);
+      seqStr += (" " + seq[num]);
     }
+    l6_genListDiv.innerHTML += "<button class=\"btn btn-outline-dark sequenceButton\" onclick=\"selectSeqOnChooser('l6 " + seqStr.trim() + "')\">" + seqStr.trim() + "</button>";
     l6_genListDiv.innerHTML += '<br>';
   }
 }
@@ -420,9 +423,12 @@ function genDGSequence() {
   dg_genListDiv.innerHTML = "";
   for (var el in dg_genList) {
     var seq = dg_genList[el];
+    var seqStr = "";
     for (var num in seq) {
-      dg_genListDiv.innerHTML += (" " + seq[num]);
+      //dg_genListDiv.innerHTML += (" " + seq[num]);
+      seqStr += (" " + seq[num]);
     }
+    dg_genListDiv.innerHTML += "<button class=\"btn btn-outline-dark sequenceButton\" onclick=\"selectSeqOnChooser('dg " + seqStr.trim() + "')\">" + seqStr.trim() + "</button>";
     dg_genListDiv.innerHTML += '<br>';
   }
 }
@@ -682,6 +688,7 @@ function selectSeqOnChooser(generatedSeq) {
     addChosenNumber("btn-check-" + parsedSeq[0] + "-" + parsedSeq[i]);
     document.getElementById("btn-check-" + parsedSeq[0] + "-" + parsedSeq[i]).checked = true;
   }
+  genChosenSeq(parsedSeq[0]);
 }
 
 function genChosenSeq(lotto) {
