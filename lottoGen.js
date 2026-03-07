@@ -883,7 +883,7 @@ function calc_goodRep(history, newSeq, repLimit) {
     //else if (repCount === 3) rep3Count++;
     else if (repCount === repLimit) {
       repLimitCount++;
-      if (repLimitCount > 4) {
+      if (repLimitCount > 6) {
         return false;
       }
     }
