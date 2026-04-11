@@ -2,6 +2,12 @@
     "id": "lottoMax",
     "history": [
         {
+            "date": "Friday, April 10, 2026",
+            "main": "1 11 16 20 28 32 45",
+            "bonus": "50",
+            "prize": "CARRIED OVER"
+        },
+        {
             "date": "Tuesday, April 07, 2026",
             "main": "3 8 15 19 23 29 37",
             "bonus": "4",
