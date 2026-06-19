@@ -2,6 +2,12 @@
     "id": "dailyGrand",
     "history": [
         {
+            "date": "Thursday, June 18, 2026",
+            "main": "25 31 32 33 41",
+            "grand": "3",
+            "prize": "NOT WON"
+        },
+        {
             "date": "Monday, June 15, 2026",
             "main": "12 18 19 27 39",
             "grand": "7",
