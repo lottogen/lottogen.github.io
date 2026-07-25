@@ -2,6 +2,12 @@
     "id": "lottoMax",
     "history": [
         {
+            "date": "Friday, July 24, 2026",
+            "main": "5 7 8 22 30 36 37",
+            "bonus": "2",
+            "prize": "$25,000,000.00"
+        },
+        {
             "date": "Tuesday, July 21, 2026",
             "main": "1 7 18 19 38 48 52",
             "bonus": "29",
