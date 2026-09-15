@@ -2,6 +2,12 @@
     "id": "dailyGrand",
     "history": [
         {
+            "date": "Monday, September 14, 2026",
+            "main": "7 8 19 41 44",
+            "grand": "2",
+            "prize": "NOT WON"
+        },
+        {
             "date": "Thursday, September 10, 2026",
             "main": "3 19 30 31 43",
             "grand": "7",
