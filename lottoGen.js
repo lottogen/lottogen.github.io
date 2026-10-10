@@ -669,6 +669,8 @@ function clearChosenSeq(lotto) {
   if (lotto == "lm") {
     lm_chosenList = [];
     document.getElementById('btn-check-lm-50').checked = false;
+    document.getElementById('btn-check-lm-51').checked = false;
+    document.getElementById('btn-check-lm-52').checked = false;
   }
   else if (lotto == "l6") {
     l6_chosenList = [];
